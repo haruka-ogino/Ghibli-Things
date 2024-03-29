@@ -8,6 +8,9 @@ export default function RandomItems() {
   const [category, setCategory] = useState('')
   const [counter, setCounter] = useState(1)
   const [items, setItems] = useState<CategoryWithFilm[]>([])
+  // game states
+  const [selectedAns, setSelectedAns] = useState<CategoryWithFilm>()
+  const [correctAns, setCorrectAns] = useState<CategoryWithFilm>()
 
   const queryClient = useQueryClient()
   const { data, isError, isLoading, error } = useCategoryItems()
@@ -66,6 +69,8 @@ export default function RandomItems() {
   ): void {
     handleGetCategoryItem(dishesArr, charsArr, placesArr)
   }
+
+  // selecting correct ans
 
   // game logic functions
   // need to determine which img should display - this will become the correct answer
