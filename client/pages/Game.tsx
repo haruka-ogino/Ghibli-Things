@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import RandomItems from './components/RandomItems'
+import RandomItems from './RandomItems'
 
 export default function Game() {
   const [showItems, setShowItems] = useState(false)

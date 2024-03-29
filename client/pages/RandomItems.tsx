@@ -1,7 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
-import useCategoryItems from '../../hooks/useCategoryItems'
-import { CategoryWithFilm } from '../../../models/ghibli'
+import useCategoryItems from '../hooks/useCategoryItems'
+import { CategoryWithFilm } from '../../models/ghibli'
+import GameDisplay from './components/GameDisplay'
 // import RandomChars from './components/RandomChars'
 
 export default function RandomItems() {
@@ -90,26 +91,33 @@ export default function RandomItems() {
     const { dishes, chars, places } = data
     // console.log(data)
     return (
-      <div>
+      <div className="game-display">
         {items.length > 0 ? (
-          <div>
-            <img src={items[0].img} alt="guess-the-film" />
-            <p>Film 1: {items[0].film}</p>
-            <p>Item 1: {items[0].name}</p>
-            {items.length > 1 && (
-              <>
-                <p>Film 2: {items[1].film}</p>
-                <p>Item 2: {items[1].name}</p>
-              </>
-            )}
-            <button
-              className="game-btn"
-              onClick={() => handleGetCategoryItem(dishes, chars, places)}
-            >
-              get random item
-            </button>
-          </div>
+          <GameDisplay
+            data={data}
+            handleGetCategoryItem={handleGetCategoryItem}
+            items={items}
+            // startGame={startGame}
+          />
         ) : (
+          // {items.length > 0 ? (
+          //   <div>
+          //     <img src={items[0].img} alt="guess-the-film" />
+          //     <p>Film 1: {items[0].film}</p>
+          //     <p>Item 1: {items[0].name}</p>
+          //     {items.length > 1 && (
+          //       <>
+          //         <p>Film 2: {items[1].film}</p>
+          //         <p>Item 2: {items[1].name}</p>
+          //       </>
+          //     )}
+          //     <button
+          //       className="game-btn"
+          //       onClick={() => handleGetCategoryItem(dishes, chars, places)}
+          //     >
+          //       get random item
+          //     </button>
+          //   </div>
           <>
             <h2>Let&apos;s play!</h2>
             <button

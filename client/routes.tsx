@@ -8,7 +8,7 @@ import AddCharacter from './pages/AddCharacter.tsx'
 import EditCharacter from './pages/EditCharacter.tsx'
 // import RandomChars from './pages/components/RandomChars.tsx'
 // import RandomDish from './pages/components/RandomDish.tsx'
-import RandomItems from './pages/components/RandomItems.tsx'
+import RandomItems from './pages/RandomItems.tsx'
 import Places from './pages/Places.tsx'
 export default createRoutesFromElements(
   <Route path="/" element={<Layout />}>
