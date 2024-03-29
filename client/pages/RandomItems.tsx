@@ -1,8 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 import useCategoryItems from '../hooks/useCategoryItems'
-import { CategoryWithFilm } from '../../models/ghibli'
+import { CategoryWithFilm, Data } from '../../models/ghibli'
 import GameDisplay from './components/GameDisplay'
+import { handleGetCategoryItem } from './components/game-display-fns'
 
 export default function RandomItems() {
   const [category, setCategory] = useState('')
@@ -21,53 +22,63 @@ export default function RandomItems() {
 
   // -- display selection functions --
   // selecting category with counter
-  function selectCategory() {
+  function selectCategory(data: Data) {
     if (counter % 3 === 0) {
-      setCategory('places')
+      // setCategory('places')
+      setItems(data.places)
+      console.log('places!!!')
+      console.log(counter)
     } else if (counter % 3 === 2) {
-      setCategory('characters')
+      // setCategory('characters')
+      setItems(data.chars)
+      console.log('characters!!!')
+      console.log(counter)
     } else if (counter % 3 === 1) {
-      setCategory('dishes')
+      // setCategory('dishes')
+      setItems(data.dishes)
+      console.log('actually dishes!')
+      console.log(counter)
     }
     setCounter((prevCounter) => prevCounter + 1)
   }
   // assigning correct category to be displayed
   function handleGetCategoryItem(
-    dishesArr: CategoryWithFilm[],
-    charsArr: CategoryWithFilm[],
-    placesArr: CategoryWithFilm[],
+    // dishesArr: CategoryWithFilm[],
+    // charsArr: CategoryWithFilm[],
+    // placesArr: CategoryWithFilm[],
+    data: Data,
   ) {
-    switch (category) {
-      case 'characters':
-        setItems(charsArr)
-        console.log('characters!!!')
-        console.log(counter)
-        break
-      case 'dishes':
-        setItems(dishesArr)
-        console.log('actually dishes!')
-        console.log(counter)
-        break
-      default:
-        setItems(placesArr)
-        console.log('places!!!')
-        console.log(counter)
-    }
+    // switch (category) {
+    //   case 'characters':
+    //     setItems(data.chars)
+    //     console.log('characters!!!')
+    //     console.log(counter)
+    //     break
+    //   case 'dishes':
+    //     setItems(data.dishes)
+    //     console.log('actually dishes!')
+    //     console.log(counter)
+    //     break
+    //   default:
+    //     setItems(data.places)
+    //     console.log('places!!!')
+    //     console.log(counter)
+    // }
+    selectCategory(data)
     // invalidate query key if all current items in the items state variable have been used
     if (counter % 3 === 0) {
       queryClient.invalidateQueries({ queryKey: ['categories'] })
       console.log('query invalidated')
     }
-
-    selectCategory()
   }
 
   function startGame(
-    dishesArr: CategoryWithFilm[],
-    charsArr: CategoryWithFilm[],
-    placesArr: CategoryWithFilm[],
+    // dishesArr: CategoryWithFilm[],
+    // charsArr: CategoryWithFilm[],
+    // placesArr: CategoryWithFilm[],
+    data: Data,
   ): void {
-    handleGetCategoryItem(dishesArr, charsArr, placesArr)
+    handleGetCategoryItem(data)
   }
 
   // selecting correct ans
@@ -106,10 +117,7 @@ export default function RandomItems() {
         ) : (
           <>
             <h2>Let&apos;s play!</h2>
-            <button
-              className="game-btn"
-              onClick={() => startGame(dishes, chars, places)}
-            >
+            <button className="game-btn" onClick={() => startGame(data)}>
               Start Game
             </button>
           </>

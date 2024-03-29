@@ -1,12 +1,9 @@
 import { CategoryWithFilm, Data } from '../../../models/ghibli'
+// import { handleGetCategoryItem } from './game-display-fns'
 
 interface Props {
   data: Data
-  handleGetCategoryItem: (
-    dishesArr: CategoryWithFilm[],
-    charsArr: CategoryWithFilm[],
-    placesArr: CategoryWithFilm[],
-  ) => void
+  handleGetCategoryItem: (data: Data) => void
   items: CategoryWithFilm[]
 }
 
@@ -27,10 +24,7 @@ export default function GameDisplay({
           <p>Item 2: {items[1].name}</p>
         </>
       )}
-      <button
-        className="game-btn"
-        onClick={() => handleGetCategoryItem(dishes, chars, places)}
-      >
+      <button className="game-btn" onClick={() => handleGetCategoryItem(data)}>
         get random item
       </button>
     </div>
