@@ -24,17 +24,14 @@ export default function RandomItems() {
   // selecting category with counter
   function selectCategory(data: Data) {
     if (counter % 3 === 0) {
-      // setCategory('places')
       setItems(data.places)
       console.log('places!!!')
       console.log(counter)
     } else if (counter % 3 === 2) {
-      // setCategory('characters')
       setItems(data.chars)
       console.log('characters!!!')
       console.log(counter)
     } else if (counter % 3 === 1) {
-      // setCategory('dishes')
       setItems(data.dishes)
       console.log('actually dishes!')
       console.log(counter)
@@ -42,43 +39,13 @@ export default function RandomItems() {
     setCounter((prevCounter) => prevCounter + 1)
   }
   // assigning correct category to be displayed
-  function handleGetCategoryItem(
-    // dishesArr: CategoryWithFilm[],
-    // charsArr: CategoryWithFilm[],
-    // placesArr: CategoryWithFilm[],
-    data: Data,
-  ) {
-    // switch (category) {
-    //   case 'characters':
-    //     setItems(data.chars)
-    //     console.log('characters!!!')
-    //     console.log(counter)
-    //     break
-    //   case 'dishes':
-    //     setItems(data.dishes)
-    //     console.log('actually dishes!')
-    //     console.log(counter)
-    //     break
-    //   default:
-    //     setItems(data.places)
-    //     console.log('places!!!')
-    //     console.log(counter)
-    // }
+  function handleGetCategoryItem(data: Data) {
     selectCategory(data)
     // invalidate query key if all current items in the items state variable have been used
     if (counter % 3 === 0) {
       queryClient.invalidateQueries({ queryKey: ['categories'] })
       console.log('query invalidated')
     }
-  }
-
-  function startGame(
-    // dishesArr: CategoryWithFilm[],
-    // charsArr: CategoryWithFilm[],
-    // placesArr: CategoryWithFilm[],
-    data: Data,
-  ): void {
-    handleGetCategoryItem(data)
   }
 
   // selecting correct ans
@@ -104,7 +71,7 @@ export default function RandomItems() {
   // then, the string from the selected (by user) film is compared to this obj state.
 
   if (data) {
-    const { dishes, chars, places } = data
+    // const { dishes, chars, places } = data
     // console.log(data)
     return (
       <div className="game-display">
@@ -117,7 +84,10 @@ export default function RandomItems() {
         ) : (
           <>
             <h2>Let&apos;s play!</h2>
-            <button className="game-btn" onClick={() => startGame(data)}>
+            <button
+              className="game-btn"
+              onClick={() => handleGetCategoryItem(data)}
+            >
               Start Game
             </button>
           </>

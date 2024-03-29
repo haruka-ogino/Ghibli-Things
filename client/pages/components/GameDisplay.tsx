@@ -1,5 +1,4 @@
 import { CategoryWithFilm, Data } from '../../../models/ghibli'
-// import { handleGetCategoryItem } from './game-display-fns'
 
 interface Props {
   data: Data
@@ -12,7 +11,6 @@ export default function GameDisplay({
   handleGetCategoryItem,
   items,
 }: Props) {
-  const { dishes, chars, places } = data
   return (
     <div>
       <img src={items[0].img} alt="guess-the-film" />
