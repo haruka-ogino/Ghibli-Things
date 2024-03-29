@@ -3,7 +3,6 @@ import { useState } from 'react'
 import useCategoryItems from '../hooks/useCategoryItems'
 import { CategoryWithFilm } from '../../models/ghibli'
 import GameDisplay from './components/GameDisplay'
-// import RandomChars from './components/RandomChars'
 
 export default function RandomItems() {
   const [category, setCategory] = useState('')
@@ -17,7 +16,8 @@ export default function RandomItems() {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
-  // display selection functions
+  // -- display selection functions --
+  // selecting category with counter
   function selectCategory() {
     if (counter % 3 === 0) {
       setCategory('places')
@@ -28,7 +28,7 @@ export default function RandomItems() {
     }
     setCounter((prevCounter) => prevCounter + 1)
   }
-
+  // assigning correct category to be displayed
   function handleGetCategoryItem(
     dishesArr: CategoryWithFilm[],
     charsArr: CategoryWithFilm[],
@@ -50,7 +50,7 @@ export default function RandomItems() {
         console.log('places!!!')
         console.log(counter)
     }
-    // invalidate query key if we have used the current items in the items state variable
+    // invalidate query key if all current items in the items state variable have been used
     if (counter % 3 === 0) {
       queryClient.invalidateQueries({ queryKey: ['categories'] })
       console.log('query invalidated')
@@ -97,27 +97,8 @@ export default function RandomItems() {
             data={data}
             handleGetCategoryItem={handleGetCategoryItem}
             items={items}
-            // startGame={startGame}
           />
         ) : (
-          // {items.length > 0 ? (
-          //   <div>
-          //     <img src={items[0].img} alt="guess-the-film" />
-          //     <p>Film 1: {items[0].film}</p>
-          //     <p>Item 1: {items[0].name}</p>
-          //     {items.length > 1 && (
-          //       <>
-          //         <p>Film 2: {items[1].film}</p>
-          //         <p>Item 2: {items[1].name}</p>
-          //       </>
-          //     )}
-          //     <button
-          //       className="game-btn"
-          //       onClick={() => handleGetCategoryItem(dishes, chars, places)}
-          //     >
-          //       get random item
-          //     </button>
-          //   </div>
           <>
             <h2>Let&apos;s play!</h2>
             <button

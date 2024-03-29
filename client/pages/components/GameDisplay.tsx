@@ -8,18 +8,12 @@ interface Props {
     placesArr: CategoryWithFilm[],
   ) => void
   items: CategoryWithFilm[]
-  // startGame: (
-  //   dishesArr: CategoryWithFilm[],
-  //   charsArr: CategoryWithFilm[],
-  //   placesArr: CategoryWithFilm[],
-  // ) => void
 }
 
 export default function GameDisplay({
   data,
   handleGetCategoryItem,
   items,
-  // startGame,
 }: Props) {
   const { dishes, chars, places } = data
   return (
