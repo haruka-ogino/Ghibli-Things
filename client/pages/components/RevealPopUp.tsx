@@ -1,16 +1,16 @@
 import { useNavigate } from 'react-router'
-import { Data } from '../../../models/ghibli'
+import { Data, Reveal } from '../../../models/ghibli'
 import '../../styles/popup.css'
 
 interface Props {
-  message: string
+  reveal: Reveal
   counter: number
   data: Data
   handleGetCategory: (data: Data) => void
 }
 
 export default function RevealPopUp({
-  message,
+  reveal,
   counter,
   data,
   handleGetCategory,
@@ -24,8 +24,8 @@ export default function RevealPopUp({
   return (
     <div className="popup-overlay">
       <div className="answer-popup">
-        {/* <img /> */}
-        <h2>{message}</h2>
+        <img src={reveal.img} alt={`the answer is ${reveal.message}`} />
+        <h2>{reveal.message}</h2>
         {counter < 10 ? (
           <button onClick={() => handleGetCategory(data)}>Next Question</button>
         ) : (

@@ -5,16 +5,13 @@ import {
   CategoryWithDescription,
   CategoryWithFilm,
   Data,
+  Reveal,
 } from '../../models/ghibli'
 import AnswersDisplay from './components/AnswersDisplay'
 import { randomInt } from './components/randomFunctions'
 import QuestionDisplay from './components/QuestionDisplay'
 import RevealPopUp from './components/RevealPopUp'
 
-interface Reveal {
-  showAns: boolean
-  message: string
-}
 export default function RandomItems() {
   const [counter, setCounter] = useState(0)
   const [items, setItems] = useState<CategoryWithDescription[]>([])
@@ -62,14 +59,11 @@ export default function RandomItems() {
       queryClient.invalidateQueries({ queryKey: ['categories'] })
       console.log('query invalidated')
     }
-
-    // if (reveal) setReveal({ ...reveal, showAns: false })
   }
 
   // selecting correct ans
   function selectAns(arr: CategoryWithFilm[]): void {
     const i = randomInt(0, 1)
-    // console.log(i)
     setCorrectAns(arr[i])
   }
 
@@ -77,14 +71,12 @@ export default function RandomItems() {
   function checkAnswer(answer: string) {
     if (!correctAns) return undefined
     let message = ''
-    // let showAns = false
     if (answer === correctAns.film) {
       message = `Correct! ${correctAns.name} is seen on ${correctAns.film}`
-      // showAns =true
     } else {
       message = `Sorry, ${answer} is wrong. ${correctAns.name} is seen on ${correctAns.film}`
     }
-    setReveal({ showAns: true, message })
+    setReveal({ showAns: true, message, img: correctAns.img })
   }
 
   if (data) {
@@ -94,7 +86,7 @@ export default function RandomItems() {
           <div className="game">
             {reveal?.showAns && (
               <RevealPopUp
-                message={reveal.message}
+                reveal={reveal}
                 counter={counter}
                 data={data}
                 handleGetCategory={handleGetCategoryItem}

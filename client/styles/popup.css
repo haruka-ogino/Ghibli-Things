@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .answer-popup {
@@ -20,7 +20,9 @@
 }
 
 .answer-popup img {
-  width: 100px;
-  margin-top: -50px;
+  width: 350px;
+  border: 10px solid rgb(73, 169, 166);
+  border-radius: 10px;
+  margin-top: -100px;
   box-shadow: 0 2px 5px rgba(red, green, blue, alpha);
 }

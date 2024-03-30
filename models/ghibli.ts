@@ -55,3 +55,9 @@ export interface Category {
   original_name: string
   description: string
 }
+
+export interface Reveal {
+  showAns: boolean
+  message: string
+  img: string
+}
