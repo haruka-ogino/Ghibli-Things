@@ -37,6 +37,9 @@ export interface CategoryWithFilm {
   filmId: number
   year: string
 }
+export interface CategoryWithDescription extends CategoryWithFilm {
+  category: string
+}
 
 export interface Data {
   dishes: CategoryWithFilm[]

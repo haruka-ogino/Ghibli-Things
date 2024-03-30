@@ -1,15 +1,19 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
 import useCategoryItems from '../hooks/useCategoryItems'
-import { CategoryWithFilm, Data } from '../../models/ghibli'
+import {
+  CategoryWithDescription,
+  CategoryWithFilm,
+  Data,
+} from '../../models/ghibli'
 import GameDisplay from './components/GameDisplay'
 import { randomInt } from './components/randomFunctions'
 export default function RandomItems() {
-  const [counter, setCounter] = useState(1)
-  const [items, setItems] = useState<CategoryWithFilm[]>([])
+  const [counter, setCounter] = useState(0)
+  const [items, setItems] = useState<CategoryWithDescription[]>([])
   // game states
   const [correctAns, setCorrectAns] = useState<CategoryWithFilm>()
-  const [selectedAns, setSelectedAns] = useState<CategoryWithFilm>()
+  const [selectedAns, setSelectedAns] = useState<CategoryWithDescription>()
 
   const queryClient = useQueryClient()
   const { data, isError, isLoading, error } = useCategoryItems()
@@ -22,18 +26,23 @@ export default function RandomItems() {
   // selecting category with counter
   function selectCategory(data: Data) {
     let chosenItems: CategoryWithFilm[] = []
+    let category = ''
     if (counter % 3 === 0) {
       chosenItems = data.places
+      category = 'place'
     } else if (counter % 3 === 2) {
       chosenItems = data.chars
+      category = 'character'
     } else if (counter % 3 === 1) {
       chosenItems = data.dishes
+      category = 'dish'
     }
-    // console.log('normal variable below')
-
-    // console.log(chosenItems)
-    setItems(chosenItems)
+    setItems([
+      { ...chosenItems[0], category },
+      { ...chosenItems[1], category },
+    ])
     selectAns(chosenItems)
+    console.log(counter)
     setCounter((prevCounter) => prevCounter + 1)
   }
 
@@ -51,21 +60,16 @@ export default function RandomItems() {
   // selecting correct ans
   function selectAns(arr: CategoryWithFilm[]): void {
     const i = randomInt(0, 1)
-    console.log(i)
-
-    // console.log(arr)
-
+    // console.log(i)
     setCorrectAns(arr[i])
-    // console.log(correctAns)
   }
 
   if (data) {
-    // console.log('useItems below')
-    // console.log(items)
     return (
-      <div className="game-display">
+      <>
         {items.length > 0 ? (
           <GameDisplay
+            counter={counter}
             data={data}
             correct={correctAns}
             handleGetCategoryItem={handleGetCategoryItem}
@@ -82,7 +86,7 @@ export default function RandomItems() {
             </button>
           </>
         )}
-      </div>
+      </>
     )
   }
 }
