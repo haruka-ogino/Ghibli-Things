@@ -26,10 +26,9 @@ export default function GameDisplay({
     return (
       <div className="game-display">
         <h2>
-          {counter}. What film is the {items[0].category} below from?
+          {counter}. What film is the {items[0].category} seen on?
         </h2>
         <img src={correct.img} alt="guess the film" />
-        <p>ANSWER: {correct.film}</p>
         <div className="answers">
           <button onClick={() => checkAnswer(items[0].film)}>
             Film 1: {items[0].film}

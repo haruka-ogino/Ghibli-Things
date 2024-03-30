@@ -69,10 +69,10 @@ export default function RandomItems() {
     if (!correctAns) return undefined
     if (answer === correctAns.film) {
       // handleWin()
-      alert(`Correct! ${correctAns.name} is from ${correctAns.film}`)
+      alert(`Correct! ${correctAns.name} is seen on ${correctAns.film}`)
     } else {
       alert(
-        `Sorry, ${correctAns.name} is from ${correctAns.film}, not ${answer}`,
+        `Sorry, ${answer} is wrong. ${correctAns.name} is seen on ${correctAns.film}`,
       )
     }
     //  else if (answer === correctAns.film)
