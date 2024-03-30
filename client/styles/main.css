@@ -36,6 +36,7 @@ h1 {
 h2 {
   font-size: 2em;
 }
+
 p {
   font-size: 1.5em;
 }
@@ -97,29 +98,30 @@ button {
   box-shadow: 3px 3px rgb(161, 174, 174);
 }
 
-.answers {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.answers button {
-  font-size: 1.5em;
-  font-family: 'Single Day', cursive, Arial;
-}
-
 .game {
   position: relative;
   width: 100%;
-  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.answers-display {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .answers-display button {
-  flex-shrink: 1;
+  font-size: 1.5em;
+  font-family: 'Single Day', cursive, Arial;
+}
+
+.answer button {
+  background-color: #225c5e;
+  flex: 1;
+  margin: 0.5em;
 }
 
 /* reactive */
