@@ -13,7 +13,7 @@ export default function RandomItems() {
   const [items, setItems] = useState<CategoryWithDescription[]>([])
   // game states
   const [correctAns, setCorrectAns] = useState<CategoryWithFilm>()
-  const [selectedAns, setSelectedAns] = useState<CategoryWithDescription>()
+  // const [selectedAns, setSelectedAns] = useState<CategoryWithDescription>()
 
   const queryClient = useQueryClient()
   const { data, isError, isLoading, error } = useCategoryItems()
@@ -49,7 +49,7 @@ export default function RandomItems() {
   // assigning correct category to be displayed
   function handleGetCategoryItem(data: Data) {
     selectCategory(data)
-
+    // checkAnswer(answer)
     // invalidate query key if all current items in the items state variable have been used
     if (counter % 3 === 0) {
       queryClient.invalidateQueries({ queryKey: ['categories'] })
@@ -64,6 +64,20 @@ export default function RandomItems() {
     setCorrectAns(arr[i])
   }
 
+  // checking provided answer
+  function checkAnswer(answer: string) {
+    if (!correctAns) return undefined
+    if (answer === correctAns.film) {
+      // handleWin()
+      alert(`Correct! ${correctAns.name} is from ${correctAns.film}`)
+    } else {
+      alert(
+        `Sorry, ${correctAns.name} is from ${correctAns.film}, not ${answer}`,
+      )
+    }
+    //  else if (answer === correctAns.film)
+  }
+
   if (data) {
     return (
       <>
@@ -72,8 +86,9 @@ export default function RandomItems() {
             counter={counter}
             data={data}
             correct={correctAns}
-            handleGetCategoryItem={handleGetCategoryItem}
             items={items}
+            checkAnswer={checkAnswer}
+            handleGetCategoryItem={handleGetCategoryItem}
           />
         ) : (
           <>

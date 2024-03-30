@@ -8,16 +8,18 @@ interface Props {
   counter: number
   data: Data
   correct: CategoryWithFilm | undefined
-  handleGetCategoryItem: (data: Data) => void
   items: CategoryWithDescription[]
+  checkAnswer: (answer: string) => undefined
+  handleGetCategoryItem: (data: Data) => void
 }
 
 export default function GameDisplay({
   counter,
   data,
   correct,
-  handleGetCategoryItem,
   items,
+  checkAnswer,
+  handleGetCategoryItem,
 }: Props) {
   if (correct) {
     // console.log(items)
@@ -27,25 +29,25 @@ export default function GameDisplay({
           {counter}. What film is the {items[0].category} below from?
         </h2>
         <img src={correct.img} alt="guess the film" />
-        <p>CORRECT: {correct.film}</p>
+        <p>ANSWER: {correct.film}</p>
         <div className="answers">
-          <p>
+          <button onClick={() => checkAnswer(items[0].film)}>
             Film 1: {items[0].film}
             <br />
             Item 1: {items[0].name}
-          </p>
+          </button>
 
-          <p>
+          <button onClick={() => checkAnswer(items[1].film)}>
             Film 2: {items[1].film}
             <br />
             Item 2: {items[1].name}
-          </p>
+          </button>
         </div>
         <button
           className="game-btn"
           onClick={() => handleGetCategoryItem(data)}
         >
-          get random item
+          next
         </button>
       </div>
     )
