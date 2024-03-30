@@ -1,12 +1,8 @@
 import { useNavigate } from 'react-router'
-import {
-  CategoryWithDescription,
-  CategoryWithFilm,
-  Data,
-} from '../../../models/ghibli'
+import { Data } from '../../../models/ghibli'
+import '../../styles/popup.css'
 
 interface Props {
-  // show: boolean
   message: string
   counter: number
   data: Data
@@ -14,7 +10,6 @@ interface Props {
 }
 
 export default function RevealPopUp({
-  // show,
   message,
   counter,
   data,
@@ -26,10 +21,10 @@ export default function RevealPopUp({
     navigate('/game-results')
   }
 
-  // if (!show) return null
   return (
     <div className="popup-overlay">
       <div className="answer-popup">
+        {/* <img /> */}
         <h2>{message}</h2>
         {counter < 10 ? (
           <button onClick={() => handleGetCategory(data)}>Next Question</button>

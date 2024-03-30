@@ -108,58 +108,19 @@ button {
   font-family: 'Single Day', cursive, Arial;
 }
 
-.popup-overlay {
+.game {
   position: relative;
-  /* top: 0;
-  left: 0; */
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* height: 100vh; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-/* .popup-overlay {
-  position: fixed;
-  width: 100%;
-  height: 300px;
-} */
-
-/* .answer-popup { */
-/* width: 400px;
-  background: white;
-  border-radius: 6px;
-  top: 50%;
-  left: 50%;
-  color: #333;
-  position: fixed; */
-/* background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 0 30px 30px;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-} */
-
-.answer-popup {
-  position: absolute;
-  /* bottom: 10%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  background-color: #f0f0f0; /* Optional background color for the game container */
 }
 
-.answer-popup img {
-  width: 100px;
-  margin-top: -50px;
-  /* border-radius: ; */
-  box-shadow: 0 2px 5px rgba(red, green, blue, alpha);
+.answers-display button {
+  flex-shrink: 1;
 }
 
 /* reactive */
