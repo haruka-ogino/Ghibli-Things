@@ -19,10 +19,7 @@ export default function RandomItems() {
   const [items, setItems] = useState<CategoryWithDescription[]>([])
   // game states
   const [correctAns, setCorrectAns] = useState<CategoryWithFilm>()
-  // const [showAns, setShowAns] = useState(false)
   const [reveal, setReveal] = useState<Reveal>()
-
-  // const [selectedAns, setSelectedAns] = useState<CategoryWithDescription>()
 
   const queryClient = useQueryClient()
   const { data, isError, isLoading, error } = useCategoryItems()
