@@ -91,30 +91,22 @@ export default function RandomItems() {
     return (
       <>
         {items.length > 0 ? (
-          <>
+          <div className="game">
+            {reveal?.showAns && (
+              <RevealPopUp
+                message={reveal.message}
+                counter={counter}
+                data={data}
+                handleGetCategory={handleGetCategoryItem}
+              />
+            )}
             <QuestionDisplay
               counter={counter}
               correct={correctAns}
               items={items}
             />
             <AnswersDisplay items={items} checkAnswer={checkAnswer} />
-            {reveal?.showAns && (
-              <p>
-                <RevealPopUp
-                  message={reveal.message}
-                  counter={counter}
-                  data={data}
-                  handleGetCategory={handleGetCategoryItem}
-                />
-              </p>
-            )}
-            <button
-              className="game-btn"
-              onClick={() => handleGetCategoryItem(data)}
-            >
-              next
-            </button>
-          </>
+          </div>
         ) : (
           <>
             <h2>Let&apos;s play!</h2>
