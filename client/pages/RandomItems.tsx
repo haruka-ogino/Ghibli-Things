@@ -56,12 +56,13 @@ export default function RandomItems() {
   // assigning correct category to be displayed
   function handleGetCategoryItem(data: Data) {
     selectCategory(data)
-    // checkAnswer(answer)
     // invalidate query key if all current items in the items state variable have been used
     if (counter % 3 === 0) {
       queryClient.invalidateQueries({ queryKey: ['categories'] })
       console.log('query invalidated')
     }
+
+    if (reveal) setReveal({ ...reveal, showAns: false })
   }
 
   // selecting correct ans
