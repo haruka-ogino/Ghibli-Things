@@ -1,12 +1,10 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { useState } from 'react'
+import { SetStateAction, useState } from 'react'
 import useCategoryItems from '../hooks/useCategoryItems'
 import { CategoryWithFilm, Data } from '../../models/ghibli'
 import GameDisplay from './components/GameDisplay'
-import { handleGetCategoryItem } from './components/game-display-fns'
-
+import { randomInt } from './components/randomFunctions'
 export default function RandomItems() {
-  const [category, setCategory] = useState('')
   const [counter, setCounter] = useState(1)
   const [items, setItems] = useState<CategoryWithFilm[]>([])
   // game states
@@ -22,25 +20,39 @@ export default function RandomItems() {
 
   // -- display selection functions --
   // selecting category with counter
+  // function selectCategory(data: Data) {
+  //   if (counter % 3 === 0) {
+  //     setItems(data.places)
+  //   } else if (counter % 3 === 2) {
+  //     setItems(data.chars)
+  //   } else if (counter % 3 === 1) {
+  //     setItems(data.dishes)
+  //   }
+  //   console.log(items)
+  //   setCounter((prevCounter) => prevCounter + 1)
+  // }
+  // selecting category with counter
   function selectCategory(data: Data) {
+    let chosenItems: CategoryWithFilm[] = []
     if (counter % 3 === 0) {
-      setItems(data.places)
-      console.log('places!!!')
-      console.log(counter)
+      chosenItems = data.places
     } else if (counter % 3 === 2) {
-      setItems(data.chars)
-      console.log('characters!!!')
-      console.log(counter)
+      chosenItems = data.chars
     } else if (counter % 3 === 1) {
-      setItems(data.dishes)
-      console.log('actually dishes!')
-      console.log(counter)
+      chosenItems = data.dishes
     }
+    console.log('normal variable below')
+
+    console.log(chosenItems)
+    setItems(chosenItems)
+    selectAns(chosenItems)
     setCounter((prevCounter) => prevCounter + 1)
   }
+
   // assigning correct category to be displayed
   function handleGetCategoryItem(data: Data) {
     selectCategory(data)
+
     // invalidate query key if all current items in the items state variable have been used
     if (counter % 3 === 0) {
       queryClient.invalidateQueries({ queryKey: ['categories'] })
@@ -49,30 +61,17 @@ export default function RandomItems() {
   }
 
   // selecting correct ans
+  function selectAns(arr: CategoryWithFilm[]): void {
+    const i = randomInt(0, 1)
+    console.log(arr)
 
-  // game logic functions
-  // need to determine which img should display - this will become the correct answer
-  // startGame will possibly need to trigger this display
-  // OPTION 1:
-  // --the issue with this option is that the later films in the DB would never be the correct answer...
-  // first item in the array is always the img displayed.
-  // However, the films are shuffled before they are displayed.
-  // STEPS to make OPTION 1 work:
-  // display img
-  // have a films array with two films (for any category)
-  // shuffle the array before displaying it - possibly right after receiving the data.
-  // display shuffledArr.
-  // OPTION 2:
-  // randomly arrange array BEFORE displaying anything
-  // films are always displayed in the order that they come in.
-  // an entire object is set to be the answer.
-  // this contains all the info - including film title and img string
-  // img is randomly chosen to be displayed using state.
-  // then, the string from the selected (by user) film is compared to this obj state.
+    setCorrectAns(arr[i])
+    console.log(correctAns)
+  }
 
   if (data) {
-    // const { dishes, chars, places } = data
-    // console.log(data)
+    console.log('useItems below')
+    console.log(items)
     return (
       <div className="game-display">
         {items.length > 0 ? (
