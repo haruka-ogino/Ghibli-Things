@@ -1,18 +1,11 @@
-import { CategoryWithDescription, Data } from '../../../models/ghibli'
+import { CategoryWithDescription } from '../../../models/ghibli'
 
 interface Props {
-  data: Data
   items: CategoryWithDescription[]
   checkAnswer: (answer: string) => undefined
-  handleGetCategoryItem: (data: Data) => void
 }
 
-export default function AnswersDisplay({
-  data,
-  items,
-  checkAnswer,
-  handleGetCategoryItem,
-}: Props) {
+export default function AnswersDisplay({ items, checkAnswer }: Props) {
   return (
     <div className="game-display">
       <div className="answers">
@@ -28,9 +21,6 @@ export default function AnswersDisplay({
           Item 2: {items[1].name}
         </button>
       </div>
-      <button className="game-btn" onClick={() => handleGetCategoryItem(data)}>
-        next
-      </button>
     </div>
   )
 }

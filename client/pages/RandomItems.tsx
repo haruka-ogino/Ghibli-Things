@@ -9,11 +9,19 @@ import {
 import AnswersDisplay from './components/AnswersDisplay'
 import { randomInt } from './components/randomFunctions'
 import QuestionDisplay from './components/QuestionDisplay'
+
+interface Reveal {
+  showAns: boolean
+  message: string
+}
 export default function RandomItems() {
   const [counter, setCounter] = useState(0)
   const [items, setItems] = useState<CategoryWithDescription[]>([])
   // game states
   const [correctAns, setCorrectAns] = useState<CategoryWithFilm>()
+  // const [showAns, setShowAns] = useState(false)
+  const [reveal, setReveal] = useState<Reveal>()
+
   // const [selectedAns, setSelectedAns] = useState<CategoryWithDescription>()
 
   const queryClient = useQueryClient()
@@ -68,15 +76,15 @@ export default function RandomItems() {
   // checking provided answer
   function checkAnswer(answer: string) {
     if (!correctAns) return undefined
+    let message = ''
+    // let showAns = false
     if (answer === correctAns.film) {
-      // handleWin()
-      alert(`Correct! ${correctAns.name} is seen on ${correctAns.film}`)
+      message = `Correct! ${correctAns.name} is seen on ${correctAns.film}`
+      // showAns =true
     } else {
-      alert(
-        `Sorry, ${answer} is wrong. ${correctAns.name} is seen on ${correctAns.film}`,
-      )
+      message = `Sorry, ${answer} is wrong. ${correctAns.name} is seen on ${correctAns.film}`
     }
-    //  else if (answer === correctAns.film)
+    setReveal({ showAns: true, message })
   }
 
   if (data) {
@@ -89,12 +97,14 @@ export default function RandomItems() {
               correct={correctAns}
               items={items}
             />
-            <AnswersDisplay
-              data={data}
-              items={items}
-              checkAnswer={checkAnswer}
-              handleGetCategoryItem={handleGetCategoryItem}
-            />
+            <AnswersDisplay items={items} checkAnswer={checkAnswer} />
+            {reveal?.showAns && <p>{reveal.message}</p>}
+            <button
+              className="game-btn"
+              onClick={() => handleGetCategoryItem(data)}
+            >
+              next
+            </button>
           </>
         ) : (
           <>
