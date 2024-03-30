@@ -6,8 +6,9 @@ import {
   CategoryWithFilm,
   Data,
 } from '../../models/ghibli'
-import GameDisplay from './components/GameDisplay'
+import AnswersDisplay from './components/AnswersDisplay'
 import { randomInt } from './components/randomFunctions'
+import QuestionDisplay from './components/QuestionDisplay'
 export default function RandomItems() {
   const [counter, setCounter] = useState(0)
   const [items, setItems] = useState<CategoryWithDescription[]>([])
@@ -82,14 +83,19 @@ export default function RandomItems() {
     return (
       <>
         {items.length > 0 ? (
-          <GameDisplay
-            counter={counter}
-            data={data}
-            correct={correctAns}
-            items={items}
-            checkAnswer={checkAnswer}
-            handleGetCategoryItem={handleGetCategoryItem}
-          />
+          <>
+            <QuestionDisplay
+              counter={counter}
+              correct={correctAns}
+              items={items}
+            />
+            <AnswersDisplay
+              data={data}
+              items={items}
+              checkAnswer={checkAnswer}
+              handleGetCategoryItem={handleGetCategoryItem}
+            />
+          </>
         ) : (
           <>
             <h2>Let&apos;s play!</h2>
