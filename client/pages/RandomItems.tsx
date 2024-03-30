@@ -51,6 +51,8 @@ export default function RandomItems() {
   // selecting correct ans
   function selectAns(arr: CategoryWithFilm[]): void {
     const i = randomInt(0, 1)
+    console.log(i)
+
     // console.log(arr)
 
     setCorrectAns(arr[i])
@@ -65,6 +67,7 @@ export default function RandomItems() {
         {items.length > 0 ? (
           <GameDisplay
             data={data}
+            correct={correctAns}
             handleGetCategoryItem={handleGetCategoryItem}
             items={items}
           />
