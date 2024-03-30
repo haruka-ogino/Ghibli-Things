@@ -9,6 +9,7 @@ import {
 import AnswersDisplay from './components/AnswersDisplay'
 import { randomInt } from './components/randomFunctions'
 import QuestionDisplay from './components/QuestionDisplay'
+import RevealPopUp from './components/RevealPopUp'
 
 interface Reveal {
   showAns: boolean
@@ -95,7 +96,16 @@ export default function RandomItems() {
               items={items}
             />
             <AnswersDisplay items={items} checkAnswer={checkAnswer} />
-            {reveal?.showAns && <p>{reveal.message}</p>}
+            {reveal?.showAns && (
+              <p>
+                <RevealPopUp
+                  message={reveal.message}
+                  counter={counter}
+                  data={data}
+                  handleGetCategory={handleGetCategoryItem}
+                />
+              </p>
+            )}
             <button
               className="game-btn"
               onClick={() => handleGetCategoryItem(data)}
