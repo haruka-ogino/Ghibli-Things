@@ -8,8 +8,8 @@ export default function RandomItems() {
   const [counter, setCounter] = useState(1)
   const [items, setItems] = useState<CategoryWithFilm[]>([])
   // game states
-  const [selectedAns, setSelectedAns] = useState<CategoryWithFilm>()
   const [correctAns, setCorrectAns] = useState<CategoryWithFilm>()
+  const [selectedAns, setSelectedAns] = useState<CategoryWithFilm>()
 
   const queryClient = useQueryClient()
   const { data, isError, isLoading, error } = useCategoryItems()
@@ -20,18 +20,6 @@ export default function RandomItems() {
 
   // -- display selection functions --
   // selecting category with counter
-  // function selectCategory(data: Data) {
-  //   if (counter % 3 === 0) {
-  //     setItems(data.places)
-  //   } else if (counter % 3 === 2) {
-  //     setItems(data.chars)
-  //   } else if (counter % 3 === 1) {
-  //     setItems(data.dishes)
-  //   }
-  //   console.log(items)
-  //   setCounter((prevCounter) => prevCounter + 1)
-  // }
-  // selecting category with counter
   function selectCategory(data: Data) {
     let chosenItems: CategoryWithFilm[] = []
     if (counter % 3 === 0) {
@@ -41,9 +29,9 @@ export default function RandomItems() {
     } else if (counter % 3 === 1) {
       chosenItems = data.dishes
     }
-    console.log('normal variable below')
+    // console.log('normal variable below')
 
-    console.log(chosenItems)
+    // console.log(chosenItems)
     setItems(chosenItems)
     selectAns(chosenItems)
     setCounter((prevCounter) => prevCounter + 1)
@@ -63,15 +51,15 @@ export default function RandomItems() {
   // selecting correct ans
   function selectAns(arr: CategoryWithFilm[]): void {
     const i = randomInt(0, 1)
-    console.log(arr)
+    // console.log(arr)
 
     setCorrectAns(arr[i])
-    console.log(correctAns)
+    // console.log(correctAns)
   }
 
   if (data) {
-    console.log('useItems below')
-    console.log(items)
+    // console.log('useItems below')
+    // console.log(items)
     return (
       <div className="game-display">
         {items.length > 0 ? (
