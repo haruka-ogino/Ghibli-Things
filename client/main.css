@@ -23,18 +23,11 @@ body {
   box-sizing: border-box;
 }
 
-div img {
-  max-width: 100%;
-  object-fit: fill;
-}
+div img,
 div p {
   max-width: 100%;
   object-fit: fill;
 }
-
-/* img {
-  max-width: 50em;
-} */
 
 h1 {
   font-size: 2.5em;
@@ -103,6 +96,12 @@ button {
   box-shadow: 3px 3px rgb(161, 174, 174);
 }
 
+.answers {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 /* reactive */
 
 @media (max-width: 800px) {
@@ -119,13 +118,13 @@ button {
   }
   h1,
   header h1 {
-    font-size: 1.5em;
+    font-size: 2em;
   }
   header img {
     width: 10em;
   }
   h2 {
-    font-size: 1em;
+    font-size: 1.5em;
   }
   img {
     max-width: 20em;

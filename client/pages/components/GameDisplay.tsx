@@ -29,11 +29,17 @@ export default function GameDisplay({
         <img src={correct.img} alt="guess the film" />
         <p>CORRECT: {correct.film}</p>
         <div className="answers">
-          <p>Film 1: {items[0].film}</p>
-          <p>Item 1: {items[0].name}</p>
+          <p>
+            Film 1: {items[0].film}
+            <br />
+            Item 1: {items[0].name}
+          </p>
 
-          <p>Film 2: {items[1].film}</p>
-          <p>Item 2: {items[1].name}</p>
+          <p>
+            Film 2: {items[1].film}
+            <br />
+            Item 2: {items[1].name}
+          </p>
         </div>
         <button
           className="game-btn"
