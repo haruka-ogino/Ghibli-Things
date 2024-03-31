@@ -62,7 +62,7 @@ export async function seed(knex) {
     },
     {
       id: 7,
-      film_id: 5,
+      film_id: 2,
       name: 'Himawari Nursery School',
       image_url: 'https://www.ghibli.jp/gallery/ponyo013.jpg',
       original_name: 'ひまわり園',
