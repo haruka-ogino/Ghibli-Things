@@ -11,6 +11,7 @@ import AnswersDisplay from './components/AnswersDisplay'
 import { randomInt } from './components/randomFunctions'
 import QuestionDisplay from './components/QuestionDisplay'
 import RevealPopUp from './components/RevealPopUp'
+import GameResults from './GameResults'
 
 export default function RandomItems() {
   const [counter, setCounter] = useState(0)
@@ -18,6 +19,7 @@ export default function RandomItems() {
   // game states
   const [correctAns, setCorrectAns] = useState<CategoryWithFilm>()
   const [reveal, setReveal] = useState<Reveal>()
+  const [score, setScore] = useState(0)
 
   const queryClient = useQueryClient()
   const { data, isError, isLoading, error } = useCategoryItems()
@@ -46,7 +48,7 @@ export default function RandomItems() {
       { ...chosenItems[1], category },
     ])
     selectAns(chosenItems)
-    console.log(counter)
+    // console.log(counter)
     setCounter((prevCounter) => prevCounter + 1)
   }
 
@@ -73,10 +75,19 @@ export default function RandomItems() {
     let message = ''
     if (answer === correctAns.film) {
       message = `Correct! ${correctAns.name} is seen on ${correctAns.film}`
+      setScore((prevScore) => prevScore + 1)
+      console.log(score)
     } else {
       message = `Sorry, ${answer} is wrong. ${correctAns.name} is seen on ${correctAns.film}`
     }
-    setReveal({ showAns: true, message, img: correctAns.img })
+    setReveal({ showAns: true, message, img: correctAns.img, showScore: false })
+  }
+
+  function newGame() {
+    setCounter(1)
+    if (reveal) setReveal({ ...reveal, showAns: false, showScore: false })
+    setScore(0)
+    queryClient.invalidateQueries({ queryKey: ['categories'] })
   }
 
   if (data) {
@@ -84,20 +95,27 @@ export default function RandomItems() {
       <>
         {items.length > 0 ? (
           <div className="game">
-            {reveal?.showAns && (
-              <RevealPopUp
-                reveal={reveal}
-                counter={counter}
-                data={data}
-                handleGetCategory={handleGetCategoryItem}
-              />
+            {reveal?.showScore ? (
+              <GameResults score={score} counter={counter} newGame={newGame} />
+            ) : (
+              <>
+                {reveal?.showAns && (
+                  <RevealPopUp
+                    reveal={reveal}
+                    counter={counter}
+                    data={data}
+                    handleGetCategory={handleGetCategoryItem}
+                    setReveal={setReveal}
+                  />
+                )}
+                <QuestionDisplay
+                  counter={counter}
+                  correct={correctAns}
+                  items={items}
+                />
+                <AnswersDisplay items={items} checkAnswer={checkAnswer} />
+              </>
             )}
-            <QuestionDisplay
-              counter={counter}
-              correct={correctAns}
-              items={items}
-            />
-            <AnswersDisplay items={items} checkAnswer={checkAnswer} />
           </div>
         ) : (
           <>

@@ -60,4 +60,10 @@ export interface Reveal {
   showAns: boolean
   message: string
   img: string
+  showScore: boolean
+}
+
+export interface End {
+  showScore: boolean
+  score: number
 }

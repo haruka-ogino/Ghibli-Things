@@ -7,6 +7,7 @@ interface Props {
   counter: number
   data: Data
   handleGetCategory: (data: Data) => void
+  setReveal: React.Dispatch<React.SetStateAction<Reveal | undefined>>
 }
 
 export default function RevealPopUp({
@@ -14,11 +15,10 @@ export default function RevealPopUp({
   counter,
   data,
   handleGetCategory,
+  setReveal,
 }: Props) {
-  const navigate = useNavigate()
-
   function handleEndGame() {
-    navigate('/game-results')
+    setReveal({ ...reveal, showScore: true })
   }
 
   return (
@@ -26,7 +26,7 @@ export default function RevealPopUp({
       <div className="answer-popup">
         <img src={reveal.img} alt={`the answer is ${reveal.message}`} />
         <h2>{reveal.message}</h2>
-        {counter < 10 ? (
+        {counter < 5 ? (
           <button onClick={() => handleGetCategory(data)}>Next Question</button>
         ) : (
           <button onClick={handleEndGame}>See Results</button>
