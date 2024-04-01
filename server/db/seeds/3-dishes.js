@@ -60,7 +60,8 @@ export async function seed(knex) {
       name: 'Herring and pumpkin pie',
       image_url: 'https://www.ghibli.jp/gallery/majo032.jpg',
       original_name: 'ニシンのパイ',
-      description: 'ニシンのパイ',
+      description:
+        'A savory pie dish combining flaky pastry crust with a filling of herring, pumpkin, and savory spices. It offers a unique blend of flavors, balancing the richness of the fish with the sweetness of the pumpkin.',
     },
     {
       id: 8,
@@ -68,7 +69,8 @@ export async function seed(knex) {
       name: 'Konpeito Candy',
       image_url: 'https://www.ghibli.jp/gallery/chihiro014.jpg',
       original_name: 'コンペイトー',
-      description: 'コンペイトー',
+      description:
+        'A traditional Japanese sugar candy characterized by its small, colorful, and star-shaped appearance. It is made by slowly crystallizing sugar syrup to form tiny crystals, resulting in a sweet and crunchy treat enjoyed by both children and adults.',
     },
   ])
 }
