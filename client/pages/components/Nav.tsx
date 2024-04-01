@@ -12,7 +12,7 @@ export default function Nav() {
         <br />
         <Link to={'places'}>Places</Link>
         <br />
-        <Link to={'game'}>Game</Link>
+        <Link to={'game'}>Test your ghibli knowledge</Link>
       </nav>
     </>
   )
