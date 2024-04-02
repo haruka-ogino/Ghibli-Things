@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { editChar } from '../apis/filmsApi.ts'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import useFilmData from '../hooks/useFilmData.ts'
+import { useFilmData } from '../hooks/useFilmData.ts'
 
 export default function EditCharacter() {
   const params = useParams()
