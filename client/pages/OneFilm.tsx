@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useSingleFilm } from '../hooks/useFilmData'
+import '../styles/film.css'
 
 export default function OneFilm() {
   const { id } = useParams()
@@ -16,12 +17,17 @@ export default function OneFilm() {
           {film.title} ({film.release_year})
         </h1>
         <div className="film-container">
-          <img src={film.banner_url} alt={`film banner for ${film.title}`} />
-          <>
+          <img
+            className="film-section"
+            id="img-film"
+            src={film.banner_url}
+            alt={`film banner for ${film.title}`}
+          />
+          <div className="film-section">
             <p>Directed by: {film.director}</p>
             <p>Original title: {film.original_title}</p>
             <p>Synopsis: {film.description}</p>
-          </>
+          </div>
         </div>
       </>
     )

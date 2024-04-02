@@ -131,10 +131,10 @@ button {
     max-width: 95%;
     margin-left: 1em;
   }
-  p {
+  /* p {
     font-family: 'Noteworthy', 'Arial Narrow', Arial, sans-serif;
     font-size: 0.8em;
-  }
+  } */
   nav {
     float: center;
   }
@@ -149,7 +149,7 @@ button {
     font-size: 1.5em;
   }
   img {
-    max-width: 20em;
+    max-width: 15em;
   }
   header,
   footer,
