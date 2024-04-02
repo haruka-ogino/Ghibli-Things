@@ -26,7 +26,11 @@ export default function OneFilm() {
           <div className="film-section">
             <p>Directed by: {film.director}</p>
             <p>Original title: {film.original_title}</p>
-            <p>Synopsis: {film.description}</p>
+            <p>
+              Synopsis:
+              <br />
+              {film.description}
+            </p>
           </div>
         </div>
       </>
