@@ -1,4 +1,4 @@
-import { CategoryWithDescription } from '../../../models/ghibli'
+import { CategoryWithDescription } from '../../models/ghibli'
 
 interface Props {
   items: CategoryWithDescription[]

@@ -1,7 +1,4 @@
-import {
-  CategoryWithDescription,
-  CategoryWithFilm,
-} from '../../../models/ghibli'
+import { CategoryWithDescription, CategoryWithFilm } from '../../models/ghibli'
 
 interface Props {
   counter: number

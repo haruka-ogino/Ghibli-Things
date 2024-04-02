@@ -7,10 +7,10 @@ import {
   Data,
   Reveal,
 } from '../../models/ghibli'
-import AnswersDisplay from './components/AnswersDisplay'
-import { randomInt } from './components/randomFunctions'
-import QuestionDisplay from './components/QuestionDisplay'
-import RevealPopUp from './components/RevealPopUp'
+import AnswersDisplay from '../components-quiz/AnswersDisplay'
+import { randomInt } from '../components-quiz/randomFunctions'
+import QuestionDisplay from '../components-quiz/QuestionDisplay'
+import RevealPopUp from '../components-quiz/RevealPopUp'
 import GameResults from './GameResults'
 
 export default function RandomItems() {
