@@ -12,5 +12,6 @@ export default function Puzzle() {
   const col = 3
   const pieceWidth = width / col
   const pieceHeight = height / row
+  const imgElement = document.createElement('img');
   return <p>hello</p>
 }
