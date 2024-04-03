@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useFilmData } from '../hooks/useFilmData.ts'
+import '../styles/films.css'
 
 export default function Films() {
   const { data: films, isError, isLoading, error } = useFilmData()
@@ -12,9 +13,9 @@ export default function Films() {
     return (
       <>
         <h1>Ghibli Films</h1>
-        <ul>
+        <ul className="films">
           {films.map((film, index) => (
-            <li key={index}>
+            <li key={index} className="film" id="film">
               <Link to={`${film.id}`}>
                 <h2>{film.title}</h2>
                 <img
