@@ -1,0 +1,29 @@
+/* .film-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+} */
+
+.film-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.film-section p {
+  max-width: 17em;
+  padding-left: 1em;
+}
+
+#img-film {
+  max-width: 15em;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 941px) {
+  #img-film {
+    max-width: 35em;
+    height: auto;
+    object-fit: contain;
+  }
+}

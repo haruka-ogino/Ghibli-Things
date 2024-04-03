@@ -1,6 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
-import { getFilms } from '../apis/filmsApi.ts'
+import { getFilm, getFilms } from '../apis/filmsApi.ts'
 
-export default function useFilmData() {
+export function useFilmData() {
   return useQuery({ queryKey: ['films'], queryFn: getFilms })
+}
+
+export function useSingleFilm(idString: string | undefined) {
+  const id = Number(idString)
+  return useQuery({ queryKey: [idString, 'film'], queryFn: () => getFilm(id) })
 }

@@ -8,11 +8,13 @@ import AddCharacter from './pages/AddCharacter.tsx'
 import EditCharacter from './pages/EditCharacter.tsx'
 import RandomItems from './pages/RandomItems.tsx'
 import Places from './pages/Places.tsx'
+import OneFilm from './pages/OneFilm.tsx'
 
 export default createRoutesFromElements(
   <Route path="/" element={<Layout />}>
     <Route index element={<Home />} />
     <Route path="films" element={<Films />} />
+    <Route path="films/:id" element={<OneFilm />} />
     <Route path="dishes" element={<Dishes />} />
     <Route path="game" element={<RandomItems />} />
     <Route path="characters" element={<Characters />} />

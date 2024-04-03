@@ -1,6 +1,5 @@
-import { useNavigate } from 'react-router'
-import { Data, Reveal } from '../../../models/ghibli'
-import '../../styles/popup.css'
+import { Data, Reveal } from '../../models/ghibli'
+import '../styles/popup.css'
 
 interface Props {
   reveal: Reveal

@@ -1,4 +1,5 @@
-import useFilmData from '../hooks/useFilmData.ts'
+import { Link } from 'react-router-dom'
+import { useFilmData } from '../hooks/useFilmData.ts'
 
 export default function Films() {
   const { data: films, isError, isLoading, error } = useFilmData()
@@ -14,11 +15,13 @@ export default function Films() {
         <ul>
           {films.map((film, index) => (
             <li key={index}>
-              <h2>{film.title}</h2>
-              <img
-                src={film.banner_url}
-                alt={`film banner for ${film.title}`}
-              />
+              <Link to={`${film.id}`}>
+                <h2>{film.title}</h2>
+                <img
+                  src={film.banner_url}
+                  alt={`film banner for ${film.title}`}
+                />
+              </Link>
             </li>
           ))}
         </ul>
