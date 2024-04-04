@@ -20,8 +20,8 @@ export default function Puzzle() {
     const context = canvas.getContext('2d')
 
     // Set canvas size (width and height)
-    canvas.width = 1920 / 3
-    canvas.height = 1038 / 3
+    canvas.width = 1920
+    canvas.height = 1038
     // crop starting and ending points
     const cropWidth = 1920 / 3
     const cropHeight = 1038 / 3
@@ -29,6 +29,8 @@ export default function Puzzle() {
     const cropY = 0
 
     // Load and draw image onto the canvas
+    // Instead, the Image object is a built-in object provided by the browser's JavaScript
+    // environment, specifically for handling images in web applications.
     const imageObj = new Image()
 
     imageObj.onload = () => {
@@ -59,5 +61,5 @@ export default function Puzzle() {
 
   return null // Since we manage canvas outside of the return block
 
-  return <p>hello</p>
+  // return <p>hello</p>
 }
