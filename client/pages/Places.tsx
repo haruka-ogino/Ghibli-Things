@@ -7,7 +7,7 @@ export default function Places() {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
-  console.log(places)
+  // console.log(places)
 
   if (places) {
     return (

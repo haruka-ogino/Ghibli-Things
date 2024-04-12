@@ -59,7 +59,7 @@ export default function RandomItems() {
     // invalidate query key if all current items in the items state variable have been used
     if (counter % 3 === 0) {
       queryClient.invalidateQueries({ queryKey: ['categories'] })
-      console.log('query invalidated')
+      // console.log('query invalidated')
     }
   }
 
@@ -76,7 +76,7 @@ export default function RandomItems() {
     if (answer === correctAns.film) {
       message = `Correct! ${correctAns.name} is seen on ${correctAns.film}`
       setScore((prevScore) => prevScore + 1)
-      console.log(score)
+      // console.log(score)
     } else {
       message = `Sorry, ${answer} is wrong. ${correctAns.name} is seen on ${correctAns.film}`
     }
