@@ -13,6 +13,8 @@ export default function Nav() {
         <Link to={'places'}>Places</Link>
         <br />
         <Link to={'game'}>Test your ghibli knowledge</Link>
+        <br />
+        <Link to={'puzzle'}>Jigsaw Puzzle</Link>
       </nav>
     </>
   )
