@@ -11,6 +11,7 @@ export default function JigsawPuzzle() {
         <div className="jigsaw-pieces">
           {imageNumbers.map((number, i) => (
             <img
+              className="piece"
               src={
                 number < 10
                   ? `/images/soot-parts-easy/image_part_00${number}.png`
