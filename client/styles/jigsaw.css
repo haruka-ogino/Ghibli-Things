@@ -1,0 +1,8 @@
+.jigsaw-pieces {
+  border: 2px solid red;
+  width: 100%;
+}
+
+.jigsaw-pieces img {
+  height: 10em;
+}
