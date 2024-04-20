@@ -7,7 +7,9 @@ export default function EasyPuzzle() {
         {imageNumbers.map((number, i) => (
           <img
             src={
-              number < 10 ? `/image_part_00${number}` : `/image_part_0${number}`
+              number < 10
+                ? `/images/soot-parts-easy/image_part_00${number}.png`
+                : `/images/soot-parts-easy/image_part_0${number}.png`
             }
             alt="puzzle piece"
             key={i}
