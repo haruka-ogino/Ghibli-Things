@@ -1,5 +1,6 @@
-export default function EasyPuzzle() {
+export default function JigsawPuzzle() {
   const imageNumbers = Array.from({ length: 15 }, (_, index) => index + 1)
+
   return (
     <>
       <div className="puzzle-type">
