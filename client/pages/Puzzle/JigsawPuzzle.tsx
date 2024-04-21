@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import '../../styles/jigsaw.css'
 import PuzzlePieces from './PuzzlePieces'
-import { DragObjectFactory, DropTargetMonitor, useDrop } from 'react-dnd'
 import PuzzleBoard from './PuzzleBoard'
 
 export default function JigsawPuzzle() {
