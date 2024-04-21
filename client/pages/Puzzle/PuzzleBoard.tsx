@@ -7,12 +7,9 @@ interface Props {
 }
 
 export default function PuzzleBoard({ board, setBoard, index }: Props) {
-  const [{ isOver }, drop] = useDrop(() => ({
+  const [, drop] = useDrop(() => ({
     accept: 'image',
     drop: (item: { number: number }) => placePiece(item.number),
-    collect: (monitor) => ({
-      isOver: !!monitor.isOver(),
-    }),
   }))
 
   function placePiece(number: number) {
