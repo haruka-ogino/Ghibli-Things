@@ -22,19 +22,20 @@ export default function PuzzleBoard({ board, setBoard, index }: Props) {
     } else {
       console.log(`/images/soot-parts-easy/image_part_0${number}.png`)
     }
-    const dropIndex: number = monitor.getItem().index // Get the index of the drop target
+    // const dropIndex: number = monitor.getItem().index
+    // Get the index of the drop target
     const updatedBoard = [...board]
-    updatedBoard[dropIndex] = number // Update the board array at the drop index
+    updatedBoard[index] = number // Update the board array at the drop index
     setBoard(updatedBoard)
   }
 
   return (
-    <p className="box">
+    <p className="box" ref={drop}>
       {board[index] > 0 && (
         <img
           alt="puzzle piece"
           src={
-            board[index] < 9
+            board[index] < 10
               ? `/images/soot-parts-easy/image_part_00${board[index]}.png`
               : `/images/soot-parts-easy/image_part_0${board[index]}.png`
           }
