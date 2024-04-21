@@ -11,3 +11,22 @@
   height: 5em;
   margin: 1em;
 }
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40em;
+  /* height: 30em; */
+  /* margin: 0.5em; */
+  border: 5px solid blue;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  height: 5em;
+  width: 5em;
+  border: 0.05em solid grey;
+  margin: 0px;
+  padding: 0px;
+}
