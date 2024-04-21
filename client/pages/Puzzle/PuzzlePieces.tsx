@@ -2,12 +2,13 @@ import { useDrag } from 'react-dnd'
 
 interface Props {
   url: string
-  i: number
+  number: number
 }
 
-export default function PuzzlePieces({ url, i }: Props) {
+export default function PuzzlePieces({ url, number }: Props) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'image',
+    item: { number: number } as { number: number },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -21,7 +22,7 @@ export default function PuzzlePieces({ url, i }: Props) {
         className="piece"
         src={url}
         alt="puzzle piece"
-        key={i}
+        key={number - 1}
       />
     </>
   )
