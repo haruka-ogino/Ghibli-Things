@@ -31,6 +31,7 @@
     "knex": "^2.5.1",
     "nock": "^13.5.4",
     "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "sqlite3": "^5.1.6",
     "superagent": "^8.1.2"
   },
