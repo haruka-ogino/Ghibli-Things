@@ -1,5 +1,5 @@
 .jigsaw-pieces {
-  border: 2px solid red;
+  border: 0.2em solid rgb(56, 158, 163);
   display: flex;
   flex-wrap: wrap;
   width: 80%;
@@ -16,7 +16,6 @@
   display: flex;
   flex-wrap: wrap;
   width: 38.2em;
-  /* height: 30em; */
   margin: 0em;
   padding: 0.1em 0em;
   border: 5px solid blue;
@@ -35,4 +34,5 @@
 .drop-position {
   /* background-color: rgb(237, 254, 255); */
   background-color: rgb(206, 247, 249);
+  /* background-color: rgb(206, 247, 249); */
 }

@@ -19,7 +19,9 @@ export default function PuzzlePieces({ url, number, index }: Props) {
     <>
       <img
         ref={drag}
-        style={{ border: isDragging ? '2px solid pink' : '0px' }}
+        style={{
+          border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
+        }}
         className="piece"
         src={url}
         alt="puzzle piece"
