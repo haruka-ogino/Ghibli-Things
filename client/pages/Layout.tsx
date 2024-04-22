@@ -1,4 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 import Nav from './components/Nav'
 
 export default function Layout() {
@@ -15,8 +17,10 @@ export default function Layout() {
         </Link>
       </header>
       <main>
-        <Nav />
-        <Outlet />
+        <DndProvider backend={HTML5Backend}>
+          <Nav />
+          <Outlet />
+        </DndProvider>
       </main>
       <footer></footer>
     </>

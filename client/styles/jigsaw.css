@@ -1,5 +1,5 @@
 .jigsaw-pieces {
-  border: 2px solid red;
+  border: 0.2em solid rgb(56, 158, 163);
   display: flex;
   flex-wrap: wrap;
   width: 80%;
@@ -10,4 +10,29 @@
   flex: 0 0 5em;
   height: 5em;
   margin: 1em;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 42.2em;
+  margin: 0em;
+  padding: 1.1em 0em;
+  border: 5px solid blue;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  height: 5em;
+  width: 5em;
+  /* border: 0.05em solid grey; */
+  margin: 0.1em;
+  padding: 0px;
+}
+
+.drop-position {
+  /* background-color: rgb(237, 254, 255); */
+  background-color: rgb(206, 247, 249);
+  /* background-color: rgb(206, 247, 249); */
 }
