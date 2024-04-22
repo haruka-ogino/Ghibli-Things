@@ -17,28 +17,16 @@ export default function PuzzlePieces({ url, number, index }: Props) {
 
   return (
     <>
-      {number === 90 ? (
-        <img
-          style={{
-            border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
-          }}
-          className="piece"
-          src={url}
-          alt="puzzle piece"
-          key={number - 1}
-        />
-      ) : (
-        <img
-          ref={drag}
-          style={{
-            border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
-          }}
-          className="piece"
-          src={url}
-          alt="puzzle piece"
-          key={number - 1}
-        />
-      )}
+      <img
+        ref={number === 90 ? null : drag}
+        style={{
+          border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
+        }}
+        className="piece"
+        src={url}
+        alt="puzzle piece"
+        key={number - 1}
+      />
     </>
   )
 }
