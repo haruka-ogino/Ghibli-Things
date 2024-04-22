@@ -4,7 +4,8 @@ import PuzzlePieces from './PuzzlePieces'
 import PuzzleBoard from './PuzzleBoard'
 
 export default function JigsawPuzzle() {
-  const imageNumbers = Array.from({ length: 15 }, (_, index) => index + 1)
+  const initialPieces = Array.from({ length: 15 }, (_, index) => index + 1)
+  const [pieces, setPieces] = useState(initialPieces)
   const initialState = Array.from({ length: 15 }, () => 0)
   const [board, setBoard] = useState(initialState)
   // const [{ isOver }, drop] = useDrop(() => ({
@@ -43,12 +44,18 @@ export default function JigsawPuzzle() {
         <p>puzzle board is below</p>
         <div className="board">
           {board.map((number, i) => (
-            <PuzzleBoard key={i} board={board} setBoard={setBoard} index={i} />
+            <PuzzleBoard
+              key={i}
+              board={board}
+              setBoard={setBoard}
+              setPieces={setPieces}
+              index={i}
+            />
           ))}
         </div>
         <p>The pieces are below</p>
         <div className="jigsaw-pieces">
-          {imageNumbers.map((number, i) => (
+          {pieces.map((number, i) => (
             // eslint-disable-next-line react/jsx-key
             <PuzzlePieces
               key={number}

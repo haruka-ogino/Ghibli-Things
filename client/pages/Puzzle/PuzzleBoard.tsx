@@ -4,9 +4,15 @@ interface Props {
   board: number[]
   setBoard: React.Dispatch<React.SetStateAction<number[]>>
   index: number
+  setPieces: React.Dispatch<React.SetStateAction<number[]>>
 }
 
-export default function PuzzleBoard({ board, setBoard, index }: Props) {
+export default function PuzzleBoard({
+  board,
+  setBoard,
+  index,
+  setPieces,
+}: Props) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'image',
     drop: (item: { number: number }) => placePiece(item.number),
@@ -18,6 +24,11 @@ export default function PuzzleBoard({ board, setBoard, index }: Props) {
   function placePiece(number: number) {
     setBoard((prevBoard) => {
       const tempArr = [...prevBoard]
+      tempArr[index] = number
+      return tempArr
+    })
+    setPieces((prevPieces) => {
+      const tempArr = [...prevPieces]
       tempArr[index] = number
       return tempArr
     })
