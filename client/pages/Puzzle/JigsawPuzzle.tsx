@@ -46,7 +46,7 @@ export default function JigsawPuzzle() {
     <>
       <div className="puzzle-type">
         <h2>Jigsaw puzzles live here</h2>
-        <p>puzzle board is below</p>
+        <p>Complete the Soot Sprites puzzle to reveal the image!</p>
         <div className="board">
           {board.map((number, i) => (
             <PuzzleBoard
@@ -58,7 +58,7 @@ export default function JigsawPuzzle() {
             />
           ))}
         </div>
-        <p>The pieces are below</p>
+        <p>Drag the pieces below to the board</p>
         <div className="jigsaw-pieces">
           {pieces.map((number, i) => (
             // eslint-disable-next-line react/jsx-key
