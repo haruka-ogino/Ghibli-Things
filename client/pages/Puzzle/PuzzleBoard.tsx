@@ -29,7 +29,9 @@ export default function PuzzleBoard({
     })
     setPieces((prevPieces) => {
       const tempArr = [...prevPieces]
-      tempArr[index] = number
+      // find index of the img being removed
+      const i = tempArr.indexOf(number)
+      tempArr[i] = 90
       return tempArr
     })
   }
