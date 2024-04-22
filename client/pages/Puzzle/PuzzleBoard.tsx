@@ -22,8 +22,10 @@ export default function PuzzleBoard({
   }))
 
   function placePiece(number: number) {
+    let returnPiece = 0
     setBoard((prevBoard) => {
       const tempArr = [...prevBoard]
+      if (tempArr[index] !== 0) returnPiece = tempArr[index]
       tempArr[index] = number
       return tempArr
     })
@@ -31,7 +33,11 @@ export default function PuzzleBoard({
       const tempArr = [...prevPieces]
       // find index of the img being removed
       const i = tempArr.indexOf(number)
-      tempArr[i] = 90
+      if (returnPiece !== 0) {
+        tempArr[i] = returnPiece
+      } else {
+        tempArr[i] = 90
+      }
       return tempArr
     })
   }

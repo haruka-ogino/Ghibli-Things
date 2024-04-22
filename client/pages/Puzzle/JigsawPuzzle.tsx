@@ -29,6 +29,11 @@ export default function JigsawPuzzle() {
   //   setBoard(updatedBoard)
   // }
 
+  for (let i = initialPieces.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[initialPieces[i], initialPieces[j]] = [initialPieces[j], initialPieces[i]]
+  }
+
   function handleUrl(number: number): string {
     if (number < 10) {
       return `/images/soot-parts-easy/image_part_00${number}.png` as string
