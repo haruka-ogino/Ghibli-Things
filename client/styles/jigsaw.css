@@ -15,9 +15,9 @@
 .board {
   display: flex;
   flex-wrap: wrap;
-  width: 38.2em;
+  width: 42.2em;
   margin: 0em;
-  padding: 0.1em 0em;
+  padding: 1.1em 0em;
   border: 5px solid blue;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@
   height: 5em;
   width: 5em;
   /* border: 0.05em solid grey; */
-  margin: 0px;
+  margin: 0.1em;
   padding: 0px;
 }
 
