@@ -7,9 +7,12 @@ interface Props {
 }
 
 export default function PuzzleBoard({ board, setBoard, index }: Props) {
-  const [, drop] = useDrop(() => ({
+  const [{ canDrop }, drop] = useDrop(() => ({
     accept: 'image',
     drop: (item: { number: number }) => placePiece(item.number),
+    collect: (monitor) => ({
+      canDrop: !!monitor.canDrop(),
+    }),
   }))
 
   function placePiece(number: number) {
@@ -21,7 +24,7 @@ export default function PuzzleBoard({ board, setBoard, index }: Props) {
   }
 
   return (
-    <p className="box" ref={drop}>
+    <p className={`box ${canDrop ? 'can-drop' : ''}`} ref={drop}>
       {board[index] > 0 && (
         <img
           alt="puzzle piece"

@@ -32,5 +32,9 @@
 }
 
 .box:hover {
+  /* background-color: aqua; */
+}
+
+.can-drop {
   background-color: aqua;
 }
