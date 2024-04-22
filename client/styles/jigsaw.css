@@ -15,9 +15,10 @@
 .board {
   display: flex;
   flex-wrap: wrap;
-  width: 40em;
+  width: 38.2em;
   /* height: 30em; */
-  /* margin: 0.5em; */
+  margin: 0em;
+  padding: 0.1em 0em;
   border: 5px solid blue;
   justify-content: center;
   align-items: center;
@@ -26,15 +27,12 @@
 .box {
   height: 5em;
   width: 5em;
-  border: 0.05em solid grey;
+  /* border: 0.05em solid grey; */
   margin: 0px;
   padding: 0px;
 }
 
-.box:hover {
-  /* background-color: aqua; */
-}
-
-.can-drop {
-  background-color: aqua;
+.drop-position {
+  /* background-color: rgb(237, 254, 255); */
+  background-color: rgb(206, 247, 249);
 }

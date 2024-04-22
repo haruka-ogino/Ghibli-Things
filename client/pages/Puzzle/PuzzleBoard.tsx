@@ -24,7 +24,7 @@ export default function PuzzleBoard({ board, setBoard, index }: Props) {
   }
 
   return (
-    <p className={`box ${isOver ? 'can-drop' : ''}`} ref={drop}>
+    <p className={`box ${isOver ? 'drop-position' : ''}`} ref={drop}>
       {board[index] > 0 && (
         <img
           alt="puzzle piece"
