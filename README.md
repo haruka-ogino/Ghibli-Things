@@ -6,17 +6,18 @@
 
 I started this full-stack project while studying at my bootcamp for the purpose of consolidating my learning in a fun way. While I have made some progress, there are many goals I am still working on.
 
-Some of the things I wanted to consolidate were:
+Some of the things I want to consolidate:
 
 * front-end routing
 * query calls
 * mutations
 * creating end-points
 
-Some ✨ new ✨ things I wanted to try out:
+Some ✨ new ✨ things I want to try out:
 
 * creating popups
 * game-logic (created a short quiz game as well as puzzles)
+* dynamic image manipulation
 
 ### Methods used
 
