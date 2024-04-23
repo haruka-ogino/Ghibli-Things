@@ -12,6 +12,7 @@ Some of the things I want to consolidate:
 * query calls
 * mutations
 * creating end-points
+* [deploying](https://ghibli-things.devacademy.nz)
 
 Some ✨ new ✨ things I want to try out:
 
@@ -29,8 +30,8 @@ Some ✨ new ✨ things I want to try out:
 ## Installation - **From the command line**
 
 ```
-git clone [https://github.com/haruka-ogino/ghibli-things.git]
-cd [ghibli-things]
+git clone https://github.com/haruka-ogino/ghibli-things.git
+cd ghibli-things
 npm install # to install dependencies
 npm run dev # to start the dev server
 ```
