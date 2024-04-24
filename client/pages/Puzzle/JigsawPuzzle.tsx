@@ -22,6 +22,10 @@ export default function JigsawPuzzle() {
     }
   }
 
+  // make fn to check for win after pieces section is empty
+  // make fn so that when you click on piece on board, it is returned to the pieces section
+  // make popup clue that shows the puzzle halfway done or so.
+
   return (
     <>
       <div className="puzzle-type">
