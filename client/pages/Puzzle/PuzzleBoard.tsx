@@ -42,10 +42,26 @@ export default function PuzzleBoard({
     })
   }
 
+  function returnPiece(num: number): void {
+    setBoard((prevBoard) => {
+      const newBoard = [...prevBoard]
+      newBoard[index] = 0
+      return newBoard
+    })
+    setPieces((prevPieces) => {
+      const newPieces = [...prevPieces]
+      const i = newPieces.indexOf(0)
+      newPieces[i] = num
+      return newPieces
+    })
+  }
+
   return (
     <p className={`box ${isOver ? 'drop-position' : ''}`} ref={drop}>
       {board[index] > 0 && (
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
         <img
+          onClick={() => returnPiece(board[index])}
           alt="puzzle piece"
           src={
             board[index] < 10

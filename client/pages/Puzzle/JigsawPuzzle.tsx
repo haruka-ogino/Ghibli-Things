@@ -34,7 +34,7 @@ export default function JigsawPuzzle() {
         <div className="board">
           {board.map((number, i) => (
             <PuzzleBoard
-              key={i}
+              key={`${i}-board`}
               board={board}
               setBoard={setBoard}
               setPieces={setPieces}
@@ -47,7 +47,7 @@ export default function JigsawPuzzle() {
           {pieces.map((number, i) => (
             // eslint-disable-next-line react/jsx-key
             <PuzzlePieces
-              key={number}
+              key={`${i}-piece`}
               url={handleUrl(number)}
               number={number}
               index={i}
