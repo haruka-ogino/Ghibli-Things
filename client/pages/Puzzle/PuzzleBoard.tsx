@@ -50,7 +50,7 @@ export default function PuzzleBoard({
     })
     setPieces((prevPieces) => {
       const newPieces = [...prevPieces]
-      const i = newPieces.indexOf(0)
+      const i = newPieces.indexOf(90)
       newPieces[i] = num
       return newPieces
     })
