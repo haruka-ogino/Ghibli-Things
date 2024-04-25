@@ -5,6 +5,7 @@ interface Props {
   setBoard: React.Dispatch<React.SetStateAction<number[]>>
   index: number
   setPieces: React.Dispatch<React.SetStateAction<number[]>>
+  checkWin: () => void
 }
 
 export default function PuzzleBoard({
@@ -12,6 +13,7 @@ export default function PuzzleBoard({
   setBoard,
   index,
   setPieces,
+  checkWin,
 }: Props) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'image',
@@ -27,6 +29,7 @@ export default function PuzzleBoard({
       const tempArr = [...prevBoard]
       if (tempArr[index] !== 0) returnPiece = tempArr[index]
       tempArr[index] = number
+      checkBoard(tempArr)
       return tempArr
     })
     setPieces((prevPieces) => {
@@ -40,6 +43,17 @@ export default function PuzzleBoard({
       }
       return tempArr
     })
+  }
+
+  // check if all pieces have been placed on board
+  function checkBoard(tempArr: number[]) {
+    const emptySpot = tempArr.indexOf(0)
+    if (emptySpot === -1) {
+      checkWin()
+      console.log('calling checkWin')
+    } else {
+      console.log('board not empty')
+    }
   }
 
   function returnPiece(num: number): void {

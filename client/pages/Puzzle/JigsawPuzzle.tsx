@@ -12,7 +12,7 @@ export default function JigsawPuzzle() {
   const [showMsg, setShowMsg] = useState(false)
   const message = [
     'Congratulations, you have solved the puzzle',
-    'That is not quite right. Click re-start puzzle or click the each piece to remove it.',
+    'That is not quite right. Click re-start puzzle or click each piece to remove it from the board.',
   ]
 
   for (let i = initialPieces.length - 1; i > 0; i--) {
@@ -29,7 +29,9 @@ export default function JigsawPuzzle() {
   }
 
   // make fn to check for win after pieces section is empty
-  function checkPieces() {
+  function checkWin() {
+    console.log('checkWin fn')
+
     renderWinState()
     let tempWin = true
     for (let i = 0; i < board.length; i++) {
@@ -68,6 +70,7 @@ export default function JigsawPuzzle() {
               setBoard={setBoard}
               setPieces={setPieces}
               index={i}
+              checkWin={checkWin}
             />
           ))}
         </div>
