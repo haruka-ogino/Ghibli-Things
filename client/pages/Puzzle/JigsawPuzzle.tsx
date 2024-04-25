@@ -8,6 +8,8 @@ export default function JigsawPuzzle() {
   const [pieces, setPieces] = useState(initialPieces)
   const initialState = Array.from({ length: 15 }, () => 0)
   const [board, setBoard] = useState(initialState)
+  const [win, setWin] = useState(false)
+  const [showMsg, setShowMsg] = useState(false)
 
   for (let i = initialPieces.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -23,8 +25,20 @@ export default function JigsawPuzzle() {
   }
 
   // make fn to check for win after pieces section is empty
-  // make fn so that when you click on piece on board, it is returned to the pieces section
+  function checkPieces() {
+    let tempWin = true
+    for (let i = 0; i < board.length; i++) {
+      if (board[i] !== i + 1) {
+        tempWin = false
+        break
+      }
+    }
+    setWin(tempWin)
+  }
+
+  console.log(board)
   // make popup clue that shows the puzzle halfway done or so.
+  // make instructions popup
 
   return (
     <>
