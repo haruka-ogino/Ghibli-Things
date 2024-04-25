@@ -10,7 +10,7 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.answer-popup {
+.popup {
   background-color: white;
   width: 500px;
   text-align: center;
@@ -19,7 +19,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-.answer-popup img {
+.popup img {
   width: 350px;
   border: 10px solid rgb(73, 169, 166);
   border-radius: 10px;

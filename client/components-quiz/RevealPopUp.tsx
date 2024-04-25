@@ -22,7 +22,7 @@ export default function RevealPopUp({
 
   return (
     <div className="popup-overlay">
-      <div className="answer-popup">
+      <div className="popup">
         <img src={reveal.img} alt={`the answer is ${reveal.message}`} />
         <h2>{reveal.message}</h2>
         {counter < 5 ? (
