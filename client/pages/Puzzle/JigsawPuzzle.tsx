@@ -10,6 +10,10 @@ export default function JigsawPuzzle() {
   const [board, setBoard] = useState(initialState)
   const [win, setWin] = useState(false)
   const [showMsg, setShowMsg] = useState(false)
+  const message = [
+    'Congratulations, you have solved the puzzle',
+    'That is not quite right. Click re-start puzzle or click the each piece to remove it.',
+  ]
 
   for (let i = initialPieces.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -26,6 +30,7 @@ export default function JigsawPuzzle() {
 
   // make fn to check for win after pieces section is empty
   function checkPieces() {
+    renderWinState()
     let tempWin = true
     for (let i = 0; i < board.length; i++) {
       if (board[i] !== i + 1) {
@@ -36,6 +41,10 @@ export default function JigsawPuzzle() {
     setWin(tempWin)
   }
 
+  function renderWinState() {
+    setShowMsg(true)
+  }
+
   console.log(board)
   // make popup clue that shows the puzzle halfway done or so.
   // make instructions popup
@@ -44,7 +53,13 @@ export default function JigsawPuzzle() {
     <>
       <div className="puzzle-type">
         <h2>Jigsaw puzzles live here</h2>
-        <p>Complete the Soot Sprites puzzle to reveal the image!</p>
+        {!showMsg ? (
+          <p>Complete the Soot Sprites puzzle to reveal the image!</p>
+        ) : win ? (
+          <p>{message[0]}</p>
+        ) : (
+          <p>{message[1]}</p>
+        )}
         <div className="board">
           {board.map((number, i) => (
             <PuzzleBoard
