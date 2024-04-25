@@ -6,9 +6,9 @@ interface Props {
 
 export default function JigsawClue({ setShow }: Props) {
   return (
-    <div className="popup-overlay">
+    <div className="popup-overlay" id="jigsaw-overlay">
       <div className="popup">
-        <button className="close" onClick={() => setShow(false)}>
+        <button id="close" onClick={() => setShow(false)}>
           x
         </button>
         <h2>Clue</h2>

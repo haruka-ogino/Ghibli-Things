@@ -11,7 +11,7 @@
 }
 
 .popup {
-  background-color: white;
+  background-color: rgb(237, 254, 255);
   width: 500px;
   text-align: center;
   padding: 20px;
@@ -25,4 +25,22 @@
   border-radius: 10px;
   margin-top: -100px;
   box-shadow: 0 2px 5px rgba(red, green, blue, alpha);
+}
+
+/* jigsaw popups styling */
+
+#close button {
+  color: rgb(237, 254, 255);
+  background-color: rgb(5, 97, 102);
+}
+
+#close {
+  border-radius: 10px;
+  font-size: 2em;
+  min-height: 1em;
+  min-width: 1.3em;
+  padding: 0em;
+  margin: 0em;
+  position: relative;
+  right: -6em;
 }
