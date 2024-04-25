@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../../styles/jigsaw.css'
 import PuzzlePieces from './PuzzlePieces'
 import PuzzleBoard from './PuzzleBoard'
+import JigsawClue from './JigsawClue'
 
 export default function JigsawPuzzle() {
   const initialPieces = Array.from({ length: 15 }, (_, index) => index + 1)
@@ -59,6 +60,7 @@ export default function JigsawPuzzle() {
 
   return (
     <>
+      {showClue && <JigsawClue setShow={setShowClue} />}
       <div className="puzzle-type">
         <h2>Jigsaw puzzles live here</h2>
         {!showMsg ? (
