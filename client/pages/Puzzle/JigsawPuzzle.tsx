@@ -30,8 +30,6 @@ export default function JigsawPuzzle() {
 
   // make fn to check for win after pieces section is empty
   function checkWin() {
-    console.log('checkWin fn')
-
     renderWinState()
     let tempWin = true
     for (let i = 0; i < board.length; i++) {
@@ -47,7 +45,6 @@ export default function JigsawPuzzle() {
     setShowMsg(true)
   }
 
-  console.log(board)
   // make popup clue that shows the puzzle halfway done or so.
   // make instructions popup
 

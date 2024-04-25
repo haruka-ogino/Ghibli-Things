@@ -50,9 +50,6 @@ export default function PuzzleBoard({
     const emptySpot = tempArr.indexOf(0)
     if (emptySpot === -1) {
       checkWin()
-      console.log('calling checkWin')
-    } else {
-      console.log('board not empty')
     }
   }
 
