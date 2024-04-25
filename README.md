@@ -1,5 +1,7 @@
 # All the Ghibli Things!
 
+Welcome to All the Ghibli Things! A library with games dedicated to Ghibli films. It encompasses various elements such as characters, locations, houses, and foods featured in the films.
+
 ## About
 
 ### Background
@@ -22,10 +24,16 @@ Some ✨ new ✨ things I want to try out:
 
 ### Methods used
 
-* multiple API endpoints
-* multiple React components
+* API endpoints
+* React components
 * database modules
 * API client modules
+
+### Games
+
+There are currently two games on this app:
+* a quiz where you identify the film each character, location, or food item is from.
+* a jigsaw puzzle where you can drag and drop pieces.
 
 ## Installation - **From the command line**
 
