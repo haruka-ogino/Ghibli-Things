@@ -59,18 +59,21 @@ export default function JigsawPuzzle() {
         ) : (
           <p>{message[1]}</p>
         )}
-        <div className="board">
-          {board.map((number, i) => (
-            <PuzzleBoard
-              key={`${i}-board`}
-              board={board}
-              setBoard={setBoard}
-              setPieces={setPieces}
-              index={i}
-              checkWin={checkWin}
-            />
-          ))}
-        </div>
+        <section className="board-section">
+          <div className="board">
+            {board.map((number, i) => (
+              <PuzzleBoard
+                key={`${i}-board`}
+                board={board}
+                setBoard={setBoard}
+                setPieces={setPieces}
+                index={i}
+                checkWin={checkWin}
+              />
+            ))}
+          </div>
+          <div className="button-menu"></div>
+        </section>
         <p>Drag the pieces below to the board</p>
         <div className="jigsaw-pieces">
           {pieces.map((number, i) => (
