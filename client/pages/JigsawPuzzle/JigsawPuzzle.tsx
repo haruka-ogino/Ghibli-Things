@@ -3,6 +3,7 @@ import '../../styles/jigsaw.css'
 import PuzzlePieces from './PuzzlePieces'
 import PuzzleBoard from './PuzzleBoard'
 import JigsawClue from './JigsawClue'
+import JigsawInstructions from './JigsawInstructions'
 
 export default function JigsawPuzzle() {
   const initialPieces = Array.from({ length: 15 }, (_, index) => index + 1)
@@ -15,8 +16,9 @@ export default function JigsawPuzzle() {
     'Congratulations, you have solved the puzzle',
     'That is not quite right. Click re-start puzzle or click each piece to remove it from the board.',
   ]
-  // popup state
+  // popup states
   const [showClue, setShowClue] = useState(false)
+  const [showInstructions, setShowInstructions] = useState(false)
 
   console.log(showClue)
 
@@ -61,6 +63,7 @@ export default function JigsawPuzzle() {
   return (
     <>
       {showClue && <JigsawClue setShow={setShowClue} />}
+      {showInstructions && <JigsawInstructions setShow={setShowInstructions} />}
       <div className="puzzle-type">
         <h2>Jigsaw puzzles live here</h2>
         {!showMsg ? (
@@ -86,6 +89,9 @@ export default function JigsawPuzzle() {
           <div className="button-menu">
             <button onClick={restartGame}>Re-start puzzle</button>
             <button onClick={() => setShowClue(true)}>See clue</button>
+            <button onClick={() => setShowInstructions(true)}>
+              Instructions
+            </button>
           </div>
         </section>
         <p>Drag the pieces below to the board</p>
