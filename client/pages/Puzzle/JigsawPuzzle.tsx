@@ -14,6 +14,10 @@ export default function JigsawPuzzle() {
     'Congratulations, you have solved the puzzle',
     'That is not quite right. Click re-start puzzle or click each piece to remove it from the board.',
   ]
+  // popup state
+  const [showClue, setShowClue] = useState(false)
+
+  console.log(showClue)
 
   for (let i = initialPieces.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -26,6 +30,11 @@ export default function JigsawPuzzle() {
     } else {
       return `/images/soot-parts-easy/image_part_0${number}.png` as string
     }
+  }
+
+  function restartGame() {
+    setPieces(initialPieces)
+    setBoard(initialState)
   }
 
   // make fn to check for win after pieces section is empty
@@ -73,7 +82,8 @@ export default function JigsawPuzzle() {
             ))}
           </div>
           <div className="button-menu">
-            <button>re-start puzzle</button>
+            <button onClick={restartGame}>Re-start puzzle</button>
+            <button onClick={() => setShowClue(true)}>See clue</button>
           </div>
         </section>
         <p>Drag the pieces below to the board</p>
