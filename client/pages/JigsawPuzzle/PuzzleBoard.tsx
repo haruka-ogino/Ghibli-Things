@@ -5,6 +5,7 @@ interface Props {
   setBoard: React.Dispatch<React.SetStateAction<number[]>>
   index: number
   setPieces: React.Dispatch<React.SetStateAction<number[]>>
+  checkWin: () => void
 }
 
 export default function PuzzleBoard({
@@ -12,6 +13,7 @@ export default function PuzzleBoard({
   setBoard,
   index,
   setPieces,
+  checkWin,
 }: Props) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'image',
@@ -27,6 +29,7 @@ export default function PuzzleBoard({
       const tempArr = [...prevBoard]
       if (tempArr[index] !== 0) returnPiece = tempArr[index]
       tempArr[index] = number
+      checkBoard(tempArr)
       return tempArr
     })
     setPieces((prevPieces) => {
@@ -42,10 +45,34 @@ export default function PuzzleBoard({
     })
   }
 
+  // check if all pieces have been placed on board
+  function checkBoard(tempArr: number[]) {
+    const emptySpot = tempArr.indexOf(0)
+    if (emptySpot === -1) {
+      checkWin()
+    }
+  }
+
+  function returnPiece(num: number): void {
+    setBoard((prevBoard) => {
+      const newBoard = [...prevBoard]
+      newBoard[index] = 0
+      return newBoard
+    })
+    setPieces((prevPieces) => {
+      const newPieces = [...prevPieces]
+      const i = newPieces.indexOf(90)
+      newPieces[i] = num
+      return newPieces
+    })
+  }
+
   return (
     <p className={`box ${isOver ? 'drop-position' : ''}`} ref={drop}>
       {board[index] > 0 && (
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
         <img
+          onClick={() => returnPiece(board[index])}
           alt="puzzle piece"
           src={
             board[index] < 10

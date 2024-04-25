@@ -81,6 +81,7 @@ ol {
 
 button {
   /* background-color: #249fa5 */
+  font-family: 'Single Day', 'cursive', Arial;
   background-color: #225c5e;
   color: #ffffff;
   border: none;
@@ -89,7 +90,7 @@ button {
   padding: 5px 15px;
   min-height: 2.5em;
   min-width: 4em;
-  font-size: 1em;
+  font-size: 1.5em;
   margin: 1em;
 }
 

@@ -36,3 +36,12 @@
   background-color: rgb(206, 247, 249);
   /* background-color: rgb(206, 247, 249); */
 }
+
+.board-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.board-menu button {
+  font-family: 'Single Day', 'cursive', Arial;
+}

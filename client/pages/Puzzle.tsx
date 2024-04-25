@@ -1,4 +1,4 @@
-import JigsawPuzzle from './Puzzle/JigsawPuzzle'
+import JigsawPuzzle from './JigsawPuzzle/JigsawPuzzle'
 
 export default function Puzzle() {
   return (
