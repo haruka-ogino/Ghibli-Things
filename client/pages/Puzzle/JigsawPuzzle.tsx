@@ -72,7 +72,9 @@ export default function JigsawPuzzle() {
               />
             ))}
           </div>
-          <div className="button-menu"></div>
+          <div className="button-menu">
+            <button>re-start puzzle</button>
+          </div>
         </section>
         <p>Drag the pieces below to the board</p>
         <div className="jigsaw-pieces">

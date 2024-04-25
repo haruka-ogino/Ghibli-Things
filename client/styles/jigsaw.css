@@ -39,4 +39,9 @@
 
 .board-section {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.board-menu button {
+  font-family: 'Single Day', 'cursive', Arial;
 }
