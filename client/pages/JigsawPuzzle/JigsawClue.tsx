@@ -12,6 +12,10 @@ export default function JigsawClue({ setShow }: Props) {
           x
         </button>
         <h2>Clue</h2>
+        <img
+          src="/images/soot-parts-easy/soots-clue-easy.png"
+          alt="puzzle solution with some paint splotches"
+        />
       </div>
     </div>
   )
