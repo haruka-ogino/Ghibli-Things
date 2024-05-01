@@ -15,6 +15,8 @@ export default function PuzzlePieces({ url, number, index }: Props) {
     }),
   }))
 
+  console.log(number)
+
   return (
     <>
       <img

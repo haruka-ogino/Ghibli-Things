@@ -25,10 +25,13 @@ export default function PuzzleBoard({
 
   function placePiece(number: number) {
     let returnPiece = 0
+    console.log(number)
+
     setBoard((prevBoard) => {
       const tempArr = [...prevBoard]
       if (tempArr[index] !== 0) returnPiece = tempArr[index]
       tempArr[index] = number
+      console.log(index)
       checkBoard(tempArr)
       return tempArr
     })
@@ -36,6 +39,9 @@ export default function PuzzleBoard({
       const tempArr = [...prevPieces]
       // find index of the img being removed
       const i = tempArr.indexOf(number)
+      // while the arrays are being updated as expected, the index cannot be found..
+      // the correct image is rendering, but not being console.log...
+      console.log(i)
       if (returnPiece !== 0) {
         tempArr[i] = returnPiece
       } else {

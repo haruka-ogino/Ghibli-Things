@@ -20,12 +20,13 @@ export default function JigsawPuzzle() {
   const [showClue, setShowClue] = useState(false)
   const [showInstructions, setShowInstructions] = useState(false)
 
-  console.log(showClue)
+  console.log(pieces)
+  console.log(board)
 
-  for (let i = initialPieces.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[initialPieces[i], initialPieces[j]] = [initialPieces[j], initialPieces[i]]
-  }
+  // for (let i = initialPieces.length - 1; i > 0; i--) {
+  //   const j = Math.floor(Math.random() * (i + 1))
+  //   ;[initialPieces[i], initialPieces[j]] = [initialPieces[j], initialPieces[i]]
+  // }
 
   function handleUrl(number: number): string {
     if (number < 10) {
@@ -56,9 +57,6 @@ export default function JigsawPuzzle() {
   function renderWinState() {
     setShowMsg(true)
   }
-
-  // make popup clue that shows the puzzle halfway done or so.
-  // make instructions popup
 
   return (
     <>
