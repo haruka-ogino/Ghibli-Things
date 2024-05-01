@@ -16,6 +16,7 @@ export default function JigsawPuzzle() {
     'Congratulations, you have solved the puzzle',
     'That is not quite right. Click re-start puzzle or click each piece to remove it from the board.',
   ]
+  const [clickedPiece, setClickedPiece] = useState(0)
   // popup states
   const [showClue, setShowClue] = useState(false)
   const [showInstructions, setShowInstructions] = useState(false)
@@ -110,7 +111,7 @@ export default function JigsawPuzzle() {
               key={`${i}-piece`}
               // url={handleUrl(number)}
               number={number}
-              index={i}
+              setPiece={setClickedPiece}
             />
           ))}
         </div>

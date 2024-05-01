@@ -1,21 +1,20 @@
-import { useDrag } from 'react-dnd'
+// import { useDrag } from 'react-dnd'
 
 interface Props {
-  // url: string
   number: number
-  index: number
+  setPiece: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default function PuzzlePieces({ number, index }: Props) {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: 'image',
-    item: { type: 'image', number: number },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
-  }))
+export default function PuzzlePieces({ number, setPiece }: Props) {
+  // const [{ isDragging }, drag] = useDrag(() => ({
+  //   type: 'image',
+  //   item: { type: 'image', number: number },
+  //   collect: (monitor) => ({
+  //     isDragging: !!monitor.isDragging(),
+  //   }),
+  // }))
 
-  console.log(number)
+  // console.log(number)
 
   function handleUrl(number: number): string {
     if (number < 10) {
@@ -25,17 +24,23 @@ export default function PuzzlePieces({ number, index }: Props) {
     }
   }
 
+  function handleClick() {
+    setPiece(number)
+  }
+
   return (
     <>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
       <img
-        ref={number === 90 ? null : drag}
-        style={{
-          border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
-        }}
+        // ref={number === 90 ? null : drag}
+        // style={{
+        //   border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
+        // }}
         className="piece"
         src={handleUrl(number)}
         alt="puzzle piece"
         key={number - 1}
+        onClick={handleClick}
       />
     </>
   )
