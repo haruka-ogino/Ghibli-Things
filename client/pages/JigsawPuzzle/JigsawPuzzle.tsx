@@ -43,11 +43,14 @@ export default function JigsawPuzzle() {
   }
 
   // make fn to check for win after pieces section is empty
-  function checkWin() {
+  function checkWin(arr: number[]) {
     renderWinState()
     let tempWin = true
-    for (let i = 0; i < board.length; i++) {
-      if (board[i] !== i + 1) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === i + 1) {
+        console.log(`${i} is ${arr[i]}`)
+      } else if (arr[i] !== i + 1) {
+        console.log(`${i} is ${arr[i]}`)
         tempWin = false
         break
       }

@@ -3,7 +3,7 @@ interface Props {
   setBoard: React.Dispatch<React.SetStateAction<number[]>>
   index: number
   setPieces: React.Dispatch<React.SetStateAction<number[]>>
-  checkWin: () => void
+  checkWin: (arr: number[]) => void
   clickedPiece: number
   setClickedPiece: React.Dispatch<React.SetStateAction<number>>
 }
@@ -21,7 +21,7 @@ export default function PuzzleBoard({
   function checkBoard(tempArr: number[]) {
     const emptySpot = tempArr.indexOf(0)
     if (emptySpot === -1) {
-      checkWin()
+      checkWin(tempArr)
     }
   }
 
