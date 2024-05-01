@@ -98,7 +98,7 @@ export default function JigsawPuzzle() {
             // eslint-disable-next-line react/jsx-key
             <PuzzlePieces
               key={`${i}-piece`}
-              url={handleUrl(number)}
+              // url={handleUrl(number)}
               number={number}
               index={i}
             />

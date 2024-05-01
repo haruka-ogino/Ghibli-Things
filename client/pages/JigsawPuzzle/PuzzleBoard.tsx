@@ -37,15 +37,20 @@ export default function PuzzleBoard({
     })
     setPieces((prevPieces) => {
       const tempArr = [...prevPieces]
+      console.log('Pieces Before Update:', tempArr)
       // find index of the img being removed
       const i = tempArr.indexOf(number)
       // while the arrays are being updated as expected, the index cannot be found..
       // the correct image is rendering, but not being console.log...
-      console.log(i)
-      if (returnPiece !== 0) {
-        tempArr[i] = returnPiece
+      console.log('Index Found:', i)
+      if (i !== -1) {
+        if (returnPiece !== 0) {
+          tempArr[i] = returnPiece
+        } else {
+          tempArr[i] = 90
+        }
       } else {
-        tempArr[i] = 90
+        console.log('Number not found in Pieces:', number)
       }
       return tempArr
     })
