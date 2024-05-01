@@ -31,6 +31,10 @@
   padding: 0px;
 }
 
+.box:hover {
+  background-color: aliceblue;
+}
+
 .drop-position {
   /* background-color: rgb(237, 254, 255); */
   background-color: rgb(206, 247, 249);
@@ -57,10 +61,4 @@ li {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-
-.empty-piece {
-  flex: 0 0 5em;
-  height: 5em;
-  margin: 1em;
 }

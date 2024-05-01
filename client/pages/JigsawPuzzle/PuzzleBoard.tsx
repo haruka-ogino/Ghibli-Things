@@ -98,8 +98,8 @@ export default function PuzzleBoard({
   }
 
   return (
-    <p>
-      {board[index] > 0 ? (
+    <p className="box">
+      {board[index] > 0 && (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
         <img
           onClick={placePiece}
@@ -110,9 +110,9 @@ export default function PuzzleBoard({
               : `/images/soot-parts-easy/image_part_0${board[index]}.png`
           }
         />
-      ) : (
-        <div className="empty-piece" />
       )}
+      {/* // <div className="empty-piece" />
+      // )} */}
     </p>
   )
 }
