@@ -10,6 +10,7 @@ import RandomItems from './pages/RandomItems.tsx'
 import Places from './pages/Places.tsx'
 import OneFilm from './pages/OneFilm.tsx'
 import Puzzle from './pages/Puzzle.tsx'
+import DragDrop from './pages/DragDrop.tsx'
 
 export default createRoutesFromElements(
   <Route path="/" element={<Layout />}>
@@ -23,5 +24,6 @@ export default createRoutesFromElements(
     <Route path="characters/:id/edit" element={<EditCharacter />} />
     <Route path="places" element={<Places />} />
     <Route path="puzzle" element={<Puzzle />} />
+    <Route path="drag-n-drop" element={<DragDrop />} />
   </Route>,
 )
