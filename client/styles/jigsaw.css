@@ -26,7 +26,6 @@
 .box {
   height: 5em;
   width: 5em;
-  /* border: 0.05em solid grey; */
   margin: 0.1em;
   padding: 0px;
 }
@@ -36,14 +35,12 @@
 }
 
 .drop-position {
-  /* background-color: rgb(237, 254, 255); */
   background-color: rgb(206, 247, 249);
-  /* background-color: rgb(206, 247, 249); */
 }
 
 .board-section {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .board-menu button {
