@@ -68,7 +68,8 @@ export default function PuzzleBoard({
     }
   }
 
-  function returnPiece(num: number): void {
+  function returnPiece() {
+    const returnPiece = board[index]
     setBoard((prevBoard) => {
       const newBoard = [...prevBoard]
       newBoard[index] = 0
@@ -77,7 +78,7 @@ export default function PuzzleBoard({
     setPieces((prevPieces) => {
       const newPieces = [...prevPieces]
       const i = newPieces.indexOf(90)
-      newPieces[i] = num
+      newPieces[i] = returnPiece
       return newPieces
     })
   }
@@ -87,22 +88,32 @@ export default function PuzzleBoard({
       const newBoard = [...prevBoard]
       newBoard[index] = clickedPiece
       setClickedPiece(0)
+      console.log('piece placed')
       return newBoard
     })
     setPieces((prevPieces) => {
       const newPieces = [...prevPieces]
       const i = newPieces.indexOf(clickedPiece)
       newPieces[i] = 90
+      console.log('piece cleared')
       return newPieces
     })
   }
 
+  function handleClick() {
+    console.log('fn called')
+    if (clickedPiece >= 1 && clickedPiece <= 15) {
+      placePiece()
+    } else if (clickedPiece === 0 || clickedPiece === 90) {
+      returnPiece()
+    }
+  }
+
   return (
-    <p className="box">
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+    <p className="box" onClick={handleClick}>
       {board[index] > 0 && (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
         <img
-          onClick={placePiece}
           alt="puzzle piece"
           src={
             board[index] < 10
@@ -111,8 +122,6 @@ export default function PuzzleBoard({
           }
         />
       )}
-      {/* // <div className="empty-piece" />
-      // )} */}
     </p>
   )
 }
