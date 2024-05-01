@@ -83,7 +83,7 @@ export default function PuzzleBoard({
       {board[index] > 0 && (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
         <img
-          onClick={() => returnPiece(board[index])}
+          // onClick={() => returnPiece(board[index])}
           alt="puzzle piece"
           src={
             board[index] < 10

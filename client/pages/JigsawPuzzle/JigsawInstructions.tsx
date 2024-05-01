@@ -14,7 +14,7 @@ export default function JigsawInstructions({ setShow }: Props) {
           <h2>Instructions</h2>
           <ul>
             <li>To place a piece, drag it onto the puzzle board.</li>
-            <li>To remove a piece from the puzzle board, click it once.</li>
+            {/* <li>To remove a piece from the puzzle board, click it once.</li> */}
             <li>Use the clue button and have fun!</li>
           </ul>
         </div>
