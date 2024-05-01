@@ -14,7 +14,6 @@ export default function PuzzlePieces({ number, setPiece }: Props) {
 
   function handleClick() {
     setPiece(number)
-    console.log('piece grabbed')
   }
 
   return (

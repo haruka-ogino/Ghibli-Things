@@ -54,7 +54,6 @@ export default function PuzzleBoard({
       const newBoard = [...prevBoard]
       newBoard[index] = clickedPiece
       setClickedPiece(0)
-      console.log('piece placed')
       checkBoard(newBoard)
       return newBoard
     })
@@ -62,13 +61,11 @@ export default function PuzzleBoard({
       const newPieces = [...prevPieces]
       const i = newPieces.indexOf(clickedPiece)
       newPieces[i] = 90
-      console.log('piece cleared')
       return newPieces
     })
   }
 
   function handleClick() {
-    console.log('fn called')
     if (clickedPiece >= 1 && clickedPiece <= 15) {
       if (board[index] !== 0) {
         const returningPiece = board[index]

@@ -21,9 +21,6 @@ export default function JigsawPuzzle() {
   const [showClue, setShowClue] = useState(false)
   const [showInstructions, setShowInstructions] = useState(false)
 
-  console.log(pieces)
-  console.log(board)
-
   for (let i = initialPieces.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[initialPieces[i], initialPieces[j]] = [initialPieces[j], initialPieces[i]]
@@ -39,10 +36,7 @@ export default function JigsawPuzzle() {
     renderWinState()
     let tempWin = true
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === i + 1) {
-        console.log(`${i} is ${arr[i]}`)
-      } else if (arr[i] !== i + 1) {
-        console.log(`${i} is ${arr[i]}`)
+      if (arr[i] !== i + 1) {
         tempWin = false
         break
       }
