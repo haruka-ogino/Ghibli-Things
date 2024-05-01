@@ -54,16 +54,7 @@ export default function JigsawPuzzle() {
       {showInstructions && <JigsawInstructions setShow={setShowInstructions} />}
       <div className="puzzle-type">
         <h1>Jigsaw puzzles live here</h1>
-        <p>
-          Some of the functionality is still undergoing construction. Namely,
-          removing a piece from the board.
-          <br />
-          <br />
-          This should be fixed in the near future.
-          <br />
-          <br />
-          Additionally, more jigsaw puzzles will become available.
-        </p>
+        <p>More jigsaw puzzles coming soon!</p>
         {!showMsg ? (
           <h2>Complete the Soot Sprites puzzle to reveal the image!</h2>
         ) : win ? (
