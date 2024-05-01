@@ -92,6 +92,8 @@ export default function JigsawPuzzle() {
                 setPieces={setPieces}
                 index={i}
                 checkWin={checkWin}
+                clickedPiece={clickedPiece}
+                setClickedPiece={setClickedPiece}
               />
             ))}
           </div>

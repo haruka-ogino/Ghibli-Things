@@ -58,3 +58,9 @@ li {
   justify-content: flex-start;
   align-items: center;
 }
+
+.empty-piece {
+  flex: 0 0 5em;
+  height: 5em;
+  margin: 1em;
+}

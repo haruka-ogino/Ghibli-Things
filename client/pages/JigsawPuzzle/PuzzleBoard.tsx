@@ -1,4 +1,4 @@
-import { useDrop } from 'react-dnd'
+// import { useDrop } from 'react-dnd'
 
 interface Props {
   board: number[]
@@ -6,6 +6,8 @@ interface Props {
   index: number
   setPieces: React.Dispatch<React.SetStateAction<number[]>>
   checkWin: () => void
+  clickedPiece: number
+  setClickedPiece: React.Dispatch<React.SetStateAction<number>>
 }
 
 export default function PuzzleBoard({
@@ -14,47 +16,49 @@ export default function PuzzleBoard({
   index,
   setPieces,
   checkWin,
+  clickedPiece,
+  setClickedPiece,
 }: Props) {
-  const [{ isOver }, drop] = useDrop(() => ({
-    accept: 'image',
-    drop: (item: { number: number }) => placePiece(item.number),
-    collect: (monitor) => ({
-      isOver: !!monitor.isOver(),
-    }),
-  }))
+  // const [{ isOver }, drop] = useDrop(() => ({
+  //   accept: 'image',
+  //   drop: (item: { number: number }) => placePiece(item.number),
+  //   collect: (monitor) => ({
+  //     isOver: !!monitor.isOver(),
+  //   }),
+  // }))
 
-  function placePiece(number: number) {
-    let returnPiece = 0
-    console.log(number)
+  // function placePiece(number: number) {
+  //   let returnPiece = 0
+  //   console.log(number)
 
-    setBoard((prevBoard) => {
-      const tempArr = [...prevBoard]
-      if (tempArr[index] !== 0) returnPiece = tempArr[index]
-      tempArr[index] = number
-      console.log(index)
-      checkBoard(tempArr)
-      return tempArr
-    })
-    setPieces((prevPieces) => {
-      const tempArr = [...prevPieces]
-      console.log('Pieces Before Update:', tempArr)
-      // find index of the img being removed
-      const i = tempArr.indexOf(number)
-      // while the arrays are being updated as expected, the index cannot be found..
-      // the correct image is rendering, but not being console.log...
-      console.log('Index Found:', i)
-      if (i !== -1) {
-        if (returnPiece !== 0) {
-          tempArr[i] = returnPiece
-        } else {
-          tempArr[i] = 90
-        }
-      } else {
-        console.log('Number not found in Pieces:', number)
-      }
-      return tempArr
-    })
-  }
+  //   setBoard((prevBoard) => {
+  //     const tempArr = [...prevBoard]
+  //     if (tempArr[index] !== 0) returnPiece = tempArr[index]
+  //     tempArr[index] = number
+  //     console.log(index)
+  //     checkBoard(tempArr)
+  //     return tempArr
+  //   })
+  //   setPieces((prevPieces) => {
+  //     const tempArr = [...prevPieces]
+  //     console.log('Pieces Before Update:', tempArr)
+  //     // find index of the img being removed
+  //     const i = tempArr.indexOf(number)
+  //     // while the arrays are being updated as expected, the index cannot be found..
+  //     // the correct image is rendering, but not being console.log...
+  //     console.log('Index Found:', i)
+  //     if (i !== -1) {
+  //       if (returnPiece !== 0) {
+  //         tempArr[i] = returnPiece
+  //       } else {
+  //         tempArr[i] = 90
+  //       }
+  //     } else {
+  //       console.log('Number not found in Pieces:', number)
+  //     }
+  //     return tempArr
+  //   })
+  // }
 
   // check if all pieces have been placed on board
   function checkBoard(tempArr: number[]) {
@@ -78,12 +82,27 @@ export default function PuzzleBoard({
     })
   }
 
+  function placePiece() {
+    setBoard((prevBoard) => {
+      const newBoard = [...prevBoard]
+      newBoard[index] = clickedPiece
+      setClickedPiece(0)
+      return newBoard
+    })
+    setPieces((prevPieces) => {
+      const newPieces = [...prevPieces]
+      const i = newPieces.indexOf(clickedPiece)
+      newPieces[i] = 90
+      return newPieces
+    })
+  }
+
   return (
-    <p className={`box ${isOver ? 'drop-position' : ''}`} ref={drop}>
-      {board[index] > 0 && (
+    <p>
+      {board[index] > 0 ? (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
         <img
-          // onClick={() => returnPiece(board[index])}
+          onClick={placePiece}
           alt="puzzle piece"
           src={
             board[index] < 10
@@ -91,6 +110,8 @@ export default function PuzzleBoard({
               : `/images/soot-parts-easy/image_part_0${board[index]}.png`
           }
         />
+      ) : (
+        <div className="empty-piece" />
       )}
     </p>
   )
