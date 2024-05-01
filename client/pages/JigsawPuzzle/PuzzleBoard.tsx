@@ -68,19 +68,28 @@ export default function PuzzleBoard({
     }
   }
 
-  function returnPiece() {
+  function returnPiece(image: number) {
     const returnPiece = board[index]
     setBoard((prevBoard) => {
       const newBoard = [...prevBoard]
       newBoard[index] = 0
       return newBoard
     })
-    setPieces((prevPieces) => {
-      const newPieces = [...prevPieces]
-      const i = newPieces.indexOf(90)
-      newPieces[i] = returnPiece
-      return newPieces
-    })
+    if (image === 0) {
+      setPieces((prevPieces) => {
+        const newPieces = [...prevPieces]
+        const emptyIndex = newPieces.indexOf(90)
+        newPieces[emptyIndex] = returnPiece
+        return newPieces
+      })
+    } else {
+      setPieces((prevPieces) => {
+        const newPieces = [...prevPieces]
+        const emptyIndex = newPieces.indexOf(90)
+        newPieces[emptyIndex] = image
+        return newPieces
+      })
+    }
   }
 
   function placePiece() {
@@ -103,9 +112,15 @@ export default function PuzzleBoard({
   function handleClick() {
     console.log('fn called')
     if (clickedPiece >= 1 && clickedPiece <= 15) {
-      placePiece()
+      if (board[index] !== 0) {
+        const returningPiece = board[index]
+        returnPiece(returningPiece)
+        placePiece()
+      } else {
+        placePiece()
+      }
     } else if (clickedPiece === 0 || clickedPiece === 90) {
-      returnPiece()
+      returnPiece(0)
     }
   }
 
