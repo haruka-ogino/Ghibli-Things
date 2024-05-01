@@ -45,3 +45,7 @@
 .board-menu button {
   font-family: 'Single Day', 'cursive', Arial;
 }
+
+li {
+  font-size: 1.5em;
+}
