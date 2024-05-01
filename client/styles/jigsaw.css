@@ -49,3 +49,12 @@
 li {
   font-size: 1.5em;
 }
+
+.puzzle-page {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}

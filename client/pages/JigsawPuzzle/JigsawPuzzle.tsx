@@ -63,13 +63,23 @@ export default function JigsawPuzzle() {
       {showClue && <JigsawClue setShow={setShowClue} />}
       {showInstructions && <JigsawInstructions setShow={setShowInstructions} />}
       <div className="puzzle-type">
-        <h2>Jigsaw puzzles live here</h2>
+        <h1>Jigsaw puzzles live here</h1>
+        <p>
+          Some of the functionality is still undergoing construction. Namely,
+          removing a piece from the board.
+          <br />
+          <br />
+          This should be fixed in the near future.
+          <br />
+          <br />
+          Additionally, more jigsaw puzzles will become available.
+        </p>
         {!showMsg ? (
-          <p>Complete the Soot Sprites puzzle to reveal the image!</p>
+          <h2>Complete the Soot Sprites puzzle to reveal the image!</h2>
         ) : win ? (
-          <p>{message[0]}</p>
+          <h2>{message[0]}</h2>
         ) : (
-          <p>{message[1]}</p>
+          <h2>{message[1]}</h2>
         )}
         <section className="board-section">
           <div className="board">
