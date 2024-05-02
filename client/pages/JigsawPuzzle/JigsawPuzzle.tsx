@@ -93,7 +93,7 @@ export default function JigsawPuzzle() {
             <PuzzlePieces
               key={`${i}-piece`}
               // url={handleUrl(number)}
-              number={number}
+              piece={number}
               setPiece={setClickedPiece}
             />
           ))}

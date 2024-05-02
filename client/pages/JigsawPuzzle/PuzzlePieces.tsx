@@ -1,9 +1,11 @@
+import { useDrag } from 'react-dnd'
+
 interface Props {
-  number: number
+  piece: number
   setPiece: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default function PuzzlePieces({ number, setPiece }: Props) {
+export default function PuzzlePieces({ piece, setPiece }: Props) {
   function handleUrl(number: number): string {
     if (number < 10) {
       return `/images/soot-parts-easy/image_part_00${number}.png` as string
@@ -12,20 +14,68 @@ export default function PuzzlePieces({ number, setPiece }: Props) {
     }
   }
 
-  function handleClick() {
-    setPiece(number)
-  }
+  // function handleClick() {
+  //   setPiece(number)
+  // }
+
+  // return (
+  //   <>
+  //     {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
+  //     <img
+  //       className="piece"
+  //       src={handleUrl(number)}
+  //       alt="puzzle piece"
+  //       key={number - 1}
+  //       onClick={handleClick}
+  //     />
+  //   </>
+  // )
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: 'image',
+    item: { type: 'image', piece },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }))
 
   return (
     <>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
-      <img
-        className="piece"
-        src={handleUrl(number)}
-        alt="puzzle piece"
-        key={number - 1}
-        onClick={handleClick}
-      />
+      {piece > 0 && (
+        <img
+          src={handleUrl(piece)}
+          alt="puzzle piece"
+          ref={drag}
+          style={{
+            border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
+          }}
+          key={piece - 1}
+        />
+      )}
     </>
   )
 }
+
+// <p
+//   className="piece"
+//   // src={handleUrl(piece)}
+//   key={piece - 1}
+//   // onClick={handleClick}
+//   ref={drag}
+//   style={{
+//     border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
+//   }}
+// >
+//   {piece}
+// </p>
+{
+  /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
+}
+//     <img className="piece"
+//       src={()=>handleUrl(piece)}
+//       alt="puzzle piece"
+//       key={piece - 1}
+//             ref={drag}
+//     style={{
+//       border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
+//     }}
+// />
