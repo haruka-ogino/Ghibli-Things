@@ -3,16 +3,18 @@ import Pieces from './DragNDrop/Pieces'
 import Board from './DragNDrop/Board'
 
 export default function DragDrop() {
-  const initialState = ['helloooooooooooooooooo', 'holaaaaaaaaaaaaaaaaa']
+  const initialState = [1, 2]
   const [pieces, setPieces] = useState(initialState)
-  const initialBoard: string[] = ['', '', '']
+  const initialBoard: number[] = [1, 0, 0]
   const [board, setBoard] = useState(initialBoard)
-  console.log(pieces)
+  // console.log(pieces)
 
   function restart() {
     setPieces(initialState)
     setBoard(initialBoard)
   }
+
+  console.log(board)
 
   return (
     <>
