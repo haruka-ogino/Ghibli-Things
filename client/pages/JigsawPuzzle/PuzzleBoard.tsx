@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useDrop } from 'react-dnd'
 
 interface Props {
@@ -28,6 +29,8 @@ export default function PuzzleBoard({
       checkWin(tempArr)
     }
   }
+
+  const [currentSpot, setCurrentSpot] = useState(thing)
 
   // function returnPiece(image: number) {
   //   const returnPiece = board[index]
@@ -91,7 +94,39 @@ export default function PuzzleBoard({
     }),
   }))
 
+  // function handleDrop(number: number) {
+  //   if (thing === 0) {
+  //     placePiece(number)
+  //   } else {
+  //     returnPiece(thing)
+  //     placePiece(number)
+  //   }
+  // }
+
+  // function replacePiece(number: number) {
+  //   setBoard((prevBoard) => {
+  //     const newBoard = [...prevBoard]
+  //     newBoard[index] = number
+  //     checkBoard(newBoard)
+  //     return newBoard
+  //   })
+  //   setPieces((prevPieces) => {
+  //     const newPieces = [...prevPieces]
+  //     const index = newPieces.indexOf(number)
+  //     if (index === -1) {
+  //       console.log('piece not found for removal')
+  //     } else {
+  //       newPieces[index] = 0
+  //     }
+  //     return newPieces
+  //   })
+  // }
+
   function placePiece(number: number) {
+    const current = currentSpot
+    if (current !== 0) {
+      returnPiece(current)
+    }
     setBoard((prevBoard) => {
       const newBoard = [...prevBoard]
       newBoard[index] = number
@@ -110,10 +145,22 @@ export default function PuzzleBoard({
     })
   }
 
-  function handleClick(number: number) {
+  function returnPiece(returningPiece: number) {
     setPieces((prevPieces) => {
-      return [...prevPieces, number]
+      const newPieces = [...prevPieces]
+      const i = newPieces.indexOf(0)
+      if (i === -1) {
+        console.log('no empty spot on pieces array found')
+      } else {
+        newPieces[i] = returningPiece
+      }
+      // return [...prevPieces, returningPiece]
+      return newPieces
     })
+  }
+
+  function handleClick(number: number) {
+    if (number !== 0) returnPiece(number)
     setBoard((prevBoard) => {
       const newBoard = [...prevBoard]
       const i = newBoard.indexOf(number)
@@ -122,7 +169,6 @@ export default function PuzzleBoard({
       } else {
         newBoard[i] = 0
       }
-
       return newBoard
     })
   }

@@ -48,6 +48,7 @@ export default function JigsawPuzzle() {
     setShowMsg(true)
   }
 
+  console.log(pieces)
   return (
     <>
       {showClue && <JigsawClue setShow={setShowClue} />}
