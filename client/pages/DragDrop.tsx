@@ -9,8 +9,13 @@ export default function DragDrop() {
   const [board, setBoard] = useState(initialBoard)
   console.log(pieces)
 
+  function restart() {
+    setPieces(initialState)
+    setBoard(initialBoard)
+  }
   return (
     <>
+      <button onClick={restart}>Restart</button>
       <div>
         <h1>hey hey dragging and dropping here</h1>
         {pieces.map((piece, i) => (
