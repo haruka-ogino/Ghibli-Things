@@ -55,27 +55,5 @@ export default function PuzzlePieces({ piece, setPiece }: Props) {
   )
 }
 
-// <p
-//   className="piece"
-//   // src={handleUrl(piece)}
-//   key={piece - 1}
-//   // onClick={handleClick}
-//   ref={drag}
-//   style={{
-//     border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
-//   }}
-// >
-//   {piece}
-// </p>
-{
-  /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
-}
-//     <img className="piece"
-//       src={()=>handleUrl(piece)}
-//       alt="puzzle piece"
-//       key={piece - 1}
-//             ref={drag}
-//     style={{
-//       border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
-//     }}
-// />
+// need to check CSS as there is undesirable movement
+// check how we are placing the piece, so as to prevent all puzzle pieces from moving every time one is placed
