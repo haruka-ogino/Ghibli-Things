@@ -64,8 +64,9 @@ export default function JigsawPuzzle() {
         )}
         <section className="board-section">
           <div className="board">
-            {board.map((number, i) => (
+            {board.map((thing, i) => (
               <PuzzleBoard
+                thing={thing}
                 key={`${i}-board`}
                 board={board}
                 setBoard={setBoard}
