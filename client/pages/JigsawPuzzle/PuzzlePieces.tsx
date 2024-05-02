@@ -49,6 +49,7 @@ export default function PuzzlePieces({ piece, setPiece }: Props) {
             border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
           }}
           key={piece - 1}
+          className="piece"
         />
       )}
     </>

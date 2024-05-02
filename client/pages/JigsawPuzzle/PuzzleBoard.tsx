@@ -126,26 +126,45 @@ export default function PuzzleBoard({
       return newBoard
     })
   }
+
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
-    // <p className="box" onClick={handleClick}>
-    <>
-      {thing === 0 ? (
-        <p className={`box ${isOver ? 'drop-position' : ''}`} ref={drop}></p>
-      ) : (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+    <p
+      className={`box ${isOver ? 'drop-position' : ''}`}
+      ref={drop}
+      onClick={() => handleClick(thing)}
+    >
+      {board[index] > 0 && (
         <img
-          className={`box ${isOver ? 'drop-position' : ''}`}
           alt="puzzle piece"
-          ref={drop}
-          onClick={() => handleClick(thing)}
           src={
-            thing < 10
-              ? `/images/soot-parts-easy/image_part_00${thing}.png`
-              : `/images/soot-parts-easy/image_part_0${thing}.png`
+            board[index] < 10
+              ? `/images/soot-parts-easy/image_part_00${board[index]}.png`
+              : `/images/soot-parts-easy/image_part_0${board[index]}.png`
           }
         />
       )}
-    </>
+    </p>
   )
 }
+
+// // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+//     // <p className="box" onClick={handleClick}>
+//     <>
+//       {thing === 0 ? (
+//         <p className={`piece ${isOver ? 'drop-position' : ''}`} ref={drop}></p>
+//       ) : (
+//         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+//         <img
+//           className={`piece ${isOver ? 'drop-position' : ''}`}
+//           alt="puzzle piece"
+//           ref={drop}
+//           onClick={() => handleClick(thing)}
+//           src={
+//             thing < 10
+//               ? `/images/soot-parts-easy/image_part_00${thing}.png`
+//               : `/images/soot-parts-easy/image_part_0${thing}.png`
+//           }
+//         />
+//       )}
+//     </>
