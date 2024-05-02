@@ -28,9 +28,29 @@ export default function Board({ thing, i, setBoard, setPieces }: Props) {
       return newPieces
     })
   }
+  function handleClick(string: string) {
+    setPieces((prevPieces) => {
+      return [...prevPieces, string]
+    })
+    setBoard((prevBoard) => {
+      const newBoard = [...prevBoard]
+      const index = newBoard.indexOf(string)
+      if (index === -1) {
+        console.log('piece not found for removal')
+      } else {
+        newBoard[index] = ''
+      }
+      return newBoard
+    })
+  }
   return (
-    <div className={`box ${isOver ? 'drop-position' : ''}`} ref={drop}>
-      <div>{thing}</div>
-    </div>
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-element-interactions
+    <p
+      className={`box ${isOver ? 'drop-position' : ''}`}
+      ref={drop}
+      onClick={() => handleClick(thing)}
+    >
+      {thing}
+    </p>
   )
 }

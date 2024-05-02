@@ -13,11 +13,12 @@ export default function DragDrop() {
     setPieces(initialState)
     setBoard(initialBoard)
   }
+
   return (
     <>
       <button onClick={restart}>Restart</button>
       <div>
-        <h1>hey hey dragging and dropping here</h1>
+        <h1>let&apos;s drag and drop</h1>
         {pieces.map((piece, i) => (
           <Pieces key={i} i={i} piece={piece} />
         ))}
