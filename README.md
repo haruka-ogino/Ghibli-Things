@@ -21,6 +21,7 @@ Some ✨ new ✨ things I want to try out:
 * creating popups
 * game-logic (created a short quiz game as well as puzzles)
 * dynamic image manipulation
+* drag and drop - currently undergoing construction
 
 ### Methods used
 
