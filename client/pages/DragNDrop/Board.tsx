@@ -13,9 +13,12 @@ export default function Board({ thing, i, setBoard, setPieces }: Props) {
       isOver: !!monitor.isOver(),
     }),
   }))
+
   function placePiece(string: string) {
     setBoard((prevBoard) => {
-      return [...prevBoard, string]
+      const newBoard = [...prevBoard]
+      newBoard[i] = string
+      return newBoard
     })
     setPieces((prevPieces) => {
       const newPieces = [...prevPieces]
@@ -28,6 +31,7 @@ export default function Board({ thing, i, setBoard, setPieces }: Props) {
       return newPieces
     })
   }
+
   function handleClick(string: string) {
     setPieces((prevPieces) => {
       return [...prevPieces, string]

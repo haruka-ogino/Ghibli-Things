@@ -5,7 +5,7 @@ import Board from './DragNDrop/Board'
 export default function DragDrop() {
   const initialState = ['helloooooooooooooooooo', 'holaaaaaaaaaaaaaaaaa']
   const [pieces, setPieces] = useState(initialState)
-  const initialBoard: string[] = ['hey']
+  const initialBoard: string[] = ['', '', '']
   const [board, setBoard] = useState(initialBoard)
   console.log(pieces)
 
