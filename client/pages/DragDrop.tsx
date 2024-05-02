@@ -7,6 +7,7 @@ export default function DragDrop() {
   const [pieces, setPieces] = useState(initialState)
   const initialBoard: string[] = ['hey']
   const [board, setBoard] = useState(initialBoard)
+  console.log(pieces)
 
   return (
     <>
@@ -23,7 +24,7 @@ export default function DragDrop() {
             key={i}
             i={i}
             thing={thing}
-            // setPieces={setPieces}
+            setPieces={setPieces}
             setBoard={setBoard}
           />
         ))}
