@@ -15,7 +15,14 @@ export default function Pieces({ piece, i }: Props) {
   return (
     <div>
       <>
-        <p style={{ border: '2px solid red' }}>{piece}</p>
+        <p
+          ref={drag}
+          style={{
+            border: isDragging ? '0.5em solid rgb(56, 158, 163)' : '0px',
+          }}
+        >
+          {piece}
+        </p>
       </>
     </div>
   )
