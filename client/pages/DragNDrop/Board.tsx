@@ -56,13 +56,17 @@ export default function Board({ thing, i, setBoard, setPieces }: Props) {
         <p className={`box ${isOver ? 'drop-position' : ''}`} ref={drop}></p>
       ) : (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
-        <p
+        <img
           className={`box ${isOver ? 'drop-position' : ''}`}
+          alt="puzzle piece"
           ref={drop}
           onClick={() => handleClick(thing)}
-        >
-          {thing}
-        </p>
+          src={
+            thing < 10
+              ? `/images/soot-parts-easy/image_part_00${thing}.png`
+              : `/images/soot-parts-easy/image_part_0${thing}.png`
+          }
+        />
       )}
     </>
   )

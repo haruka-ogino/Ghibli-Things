@@ -25,7 +25,7 @@ export default function DragDrop() {
           <Pieces key={i} i={i} piece={piece} />
         ))}
       </div>
-      <h1>Board is bellow</h1>
+      <h1>Board is below</h1>
       <div style={{ border: '2px solid blue', minHeight: '50px' }}>
         {board.map((thing, i) => (
           <Board
