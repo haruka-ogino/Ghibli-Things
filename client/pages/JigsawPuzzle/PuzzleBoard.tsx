@@ -137,7 +137,7 @@ export default function PuzzleBoard({
       const newPieces = [...prevPieces]
       const index = newPieces.indexOf(number)
       if (index === -1) {
-        console.log('piece not found for removal')
+        console.log(`piece not found for removal - number ${number}`)
       } else {
         newPieces[index] = 0
       }
