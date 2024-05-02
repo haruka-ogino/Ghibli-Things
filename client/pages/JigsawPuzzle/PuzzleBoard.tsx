@@ -22,12 +22,12 @@ export default function PuzzleBoard({
   setClickedPiece,
 }: Props) {
   // check if all pieces have been placed on board
-  // function checkBoard(tempArr: number[]) {
-  //   const emptySpot = tempArr.indexOf(0)
-  //   if (emptySpot === -1) {
-  //     checkWin(tempArr)
-  //   }
-  // }
+  function checkBoard(tempArr: number[]) {
+    const emptySpot = tempArr.indexOf(0)
+    if (emptySpot === -1) {
+      checkWin(tempArr)
+    }
+  }
 
   // function returnPiece(image: number) {
   //   const returnPiece = board[index]
@@ -95,6 +95,7 @@ export default function PuzzleBoard({
     setBoard((prevBoard) => {
       const newBoard = [...prevBoard]
       newBoard[index] = number
+      checkBoard(newBoard)
       return newBoard
     })
     setPieces((prevPieces) => {
