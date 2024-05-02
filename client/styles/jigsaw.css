@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   width: 80%;
   justify-content: center;
+  min-height: 15em;
 }
 
 .jigsaw-pieces img {
