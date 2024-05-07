@@ -14,7 +14,7 @@ Some of the things I want to consolidate:
 * query calls
 * mutations
 * creating end-points
-* [deploying](https://ghibli-things.devacademy.nz)
+* [deploying](https://ghibli-things.pushed.nz)
 
 Some ✨ new ✨ things I want to try out:
 
