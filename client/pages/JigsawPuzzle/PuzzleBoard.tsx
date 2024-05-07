@@ -74,10 +74,9 @@ export default function PuzzleBoard({
       } else {
         placePiece()
       }
+    } else if (clickedPiece === 0 || clickedPiece === 90) {
+      returnPiece(0)
     }
-    // else if (clickedPiece === 0 || clickedPiece === 90) {
-    //   returnPiece(0)
-    // }
   }
 
   return (
