@@ -30,7 +30,6 @@ router.get('/with-films', async (req, res) => {
 
 router.post('/new-character', async (req, res) => {
   try {
-    // const { name, film_id, image_url } = req.body
     const newChar = req.body
     const added = await db.addChar(newChar)
 
@@ -43,7 +42,6 @@ router.post('/new-character', async (req, res) => {
 
 router.patch('/update/:id', async (req, res) => {
   try {
-    // const { name, film_id, image_url } = req.body
     const newChar = req.body
     const id = Number(req.params.id)
     const added = await db.updateChar(id, newChar)
