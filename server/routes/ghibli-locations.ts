@@ -12,11 +12,16 @@ console.log(process.env.GOOGLE_KEY)
 
 router.get('/', async (req, res) => {
   try {
-    const placeId = 'ChIJ980515_kGGARxaRRbCKFVBE'
+    const placeId = 'ChIJmbzCFl_jGGAR98V28VrP0QI'
     const response = await axios.get(
       `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${process.env.GOOGLE_KEY}`,
     )
-    res.json(response.data.result.rating)
+    // rating = response.data.result.rating
+    // name = response.data.result.name
+    // address = response.data.result.formatted_address
+    // url = response.data.result.url
+
+    res.json(response.data)
   } catch (error) {
     console.log(error)
     res.status(500).json({ message: 'Something went wrong' })
