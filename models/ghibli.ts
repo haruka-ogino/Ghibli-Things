@@ -70,7 +70,8 @@ export interface End {
 
 export interface Location {
   id: string
-  film: number
+  filmId: number
+  film: string
   imgUrl: string
   description: string
   rating: number

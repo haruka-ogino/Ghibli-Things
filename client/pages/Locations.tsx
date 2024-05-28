@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import useGetLocations from '../hooks/useLocations'
 
 export default function Locations() {
@@ -27,7 +28,9 @@ export default function Locations() {
             {locations.map((location, i) => (
               <tr key={i}>
                 <td>{location.name}</td>
-                <td>{location.film}</td>
+                <td>
+                  <Link to={`/films/${location.filmId}`}>{location.film}</Link>
+                </td>
                 <td>{location.description}</td>
                 <td>{location.rating}</td>
                 <td>

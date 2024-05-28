@@ -5,6 +5,7 @@ export async function getAllLocations() {
     .leftJoin('films', 'films.id', 'locations.film_id')
     .select(
       'locations.id as id',
+      'films.id as filmId',
       'films.title as film',
       'locations.image_url as imgUrl',
       'locations.description as description',
