@@ -4,8 +4,12 @@
  */
 export function up(knex) {
   return knex.schema.createTable('locations', (table) => {
-    table.integer('id').primary()
-    table.integer('film_id').references('films.id').onDelete('CASCADE')
+    table.string('id').primary()
+    table
+      .integer('film_id')
+      .nullable()
+      .references('films.id')
+      .onDelete('CASCADE')
     table.string('image_url')
     table.string('description')
   })
