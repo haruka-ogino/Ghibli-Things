@@ -29,7 +29,13 @@ export default function Locations() {
               <tr key={i}>
                 <td>{location.name}</td>
                 <td>
-                  <Link to={`/films/${location.filmId}`}>{location.film}</Link>
+                  {location.film ? (
+                    <Link to={`/films/${location.filmId}`}>
+                      {location.film}
+                    </Link>
+                  ) : (
+                    '-'
+                  )}
                 </td>
                 <td>{location.description}</td>
                 <td>{location.rating}</td>
