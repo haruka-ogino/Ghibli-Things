@@ -9,6 +9,11 @@ export default function Locations() {
   if (isError) return <h1>Error retrieving data.</h1>
 
   if (locations) {
+    console.log(locations[0])
+
+    const fields = Object.keys(locations[0])
+    console.log(fields)
+
     return (
       <>
         <h1>Real Life Locations</h1>

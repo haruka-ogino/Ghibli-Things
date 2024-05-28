@@ -67,3 +67,14 @@ export interface End {
   showScore: boolean
   score: number
 }
+
+export interface Location {
+  id: string
+  film: number
+  imgUrl: string
+  description: string
+  rating: number
+  name: string
+  address: string
+  url: string
+}
