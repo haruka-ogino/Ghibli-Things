@@ -11,6 +11,7 @@ import Places from './pages/Places.tsx'
 import OneFilm from './pages/OneFilm.tsx'
 import Puzzle from './pages/Puzzle.tsx'
 import DragDrop from './pages/DragDrop.tsx'
+import Locations from './pages/Locations.tsx'
 
 export default createRoutesFromElements(
   <Route path="/" element={<Layout />}>
@@ -25,5 +26,6 @@ export default createRoutesFromElements(
     <Route path="places" element={<Places />} />
     <Route path="puzzle" element={<Puzzle />} />
     <Route path="drag-n-drop" element={<DragDrop />} />
+    <Route path="locations" element={<Locations />} />
   </Route>,
 )
