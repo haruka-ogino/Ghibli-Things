@@ -125,6 +125,14 @@ button {
   margin: 0.5em;
 }
 
+table,
+td,
+th {
+  border: 1px solid;
+  border-collapse: collapse;
+  border-radius: 5%;
+}
+
 /* reactive */
 
 @media (max-width: 800px) {
